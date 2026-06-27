@@ -2319,18 +2319,21 @@ CRITICAL RULES:
         return;
       }
     } catch (error: any) {
-      console.warn("Gemini chatbot call failed, falling back to local pre-coded match:", error.message);
-      // Fall through to local fallback below
+      console.error("Gemini chatbot call failed:", error.message);
+      res.status(503).json({
+        error: "Gemini chatbot authentication or request failed.",
+        details: error.message
+      });
+      return;
     }
   }
 
-  // 3. Fallback: If offline or Gemini failed, return the matching local Q&A entry if found
-  if (bestMatch && maxMatchCount >= 1) {
-    res.json({ reply: (bestMatch as any).answer });
-    return;
-  }
+  res.status(503).json({
+    error: "GEMINI_API_KEY is required for the AI chatbot."
+  });
+  return;
 
-  // 4. Fallback: If offline and no local match, check related keywords or developer details
+  // Unreachable safety notes retained for reference-only matching tests.
   const relatedKeywords = [
     "civic", "lens", "pulse", "point", "score", "reward", "badge",
     "leaderboard", "announcement", "theme", "color", "design", "glassmorphism",

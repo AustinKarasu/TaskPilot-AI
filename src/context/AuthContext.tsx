@@ -69,10 +69,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const previousAuthMode = localStorage.getItem("civiclens_auth_mode");
     if (previousAuthMode !== mode) {
       localStorage.setItem("civiclens_auth_mode", mode);
-      localStorage.setItem("civiclens_is_signed_in", "false");
-      localStorage.setItem("civiclens_demo_is_signed_in", "false");
-      localStorage.removeItem("civiclens_current_user_id");
-      localStorage.removeItem("civiclens_demo_current_user_id");
+      if (mode === "demo") {
+        localStorage.setItem("civiclens_is_signed_in", localStorage.getItem("civiclens_demo_is_signed_in") === "true" ? "true" : "false");
+      }
     }
 
     const fallbackTimeout = setTimeout(() => {

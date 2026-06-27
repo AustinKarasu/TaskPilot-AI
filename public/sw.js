@@ -2,10 +2,8 @@
  * CivicPulse PWA Service Worker
  */
 
-const CACHE_NAME = "civicpulse-pwa-cache-v2";
+const CACHE_NAME = "civicpulse-pwa-cache-v3";
 const ASSETS_TO_CACHE = [
-  "/",
-  "/index.html",
   "/favicon.png",
   "/manifest.json"
 ];
@@ -38,33 +36,30 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
-// Fetch event: Network-first falling back to cache
+// Fetch event: keep the app shell network-first so old bundles do not survive deploys.
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+  const request = event.request;
+
+  if (request.mode === "navigate" || request.headers.get("accept")?.includes("text/html")) {
+    event.respondWith(fetch(request));
+    return;
+  }
 
   event.respondWith(
-    fetch(event.request)
+    fetch(request)
       .then((response) => {
-        // Cache new successful GET responses
-        if (response && response.status === 200) {
+        const cacheableDestinations = new Set(["style", "script", "image", "font", "manifest"]);
+        if (response && response.status === 200 && cacheableDestinations.has(request.destination)) {
           const responseClone = response.clone();
           caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseClone);
+            cache.put(request, responseClone);
           });
         }
         return response;
       })
       .catch(() => {
-        // Fallback to cache if network is offline
-        return caches.match(event.request).then((cachedResponse) => {
-          if (cachedResponse) {
-            return cachedResponse;
-          }
-          // If HTML request fails, serve index.html
-          if (event.request.headers.get("accept")?.includes("text/html")) {
-            return caches.match("/index.html");
-          }
-        });
+        return caches.match(request);
       })
   );
 });

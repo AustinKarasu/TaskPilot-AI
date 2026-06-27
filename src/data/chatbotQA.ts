@@ -216,7 +216,7 @@ export const CHATBOT_QA: QAEntry[] = [
   {
     id: 40,
     keywords: ["gemini offline fallback", "what if gemini fails", "ai offline check"],
-    answer: "If the Gemini API key is missing or the service is offline, the platform uses a local validation fallback layer to analyze issues and provide automated feedback."
+    answer: "If the Gemini API key is missing or invalid, CivicPulse AI surfaces a real Gemini configuration error so judges and developers can fix the credential instead of seeing a fake AI response."
   },
 
   // 6. CONSENSUS & PEER AUDITING
