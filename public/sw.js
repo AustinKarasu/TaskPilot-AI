@@ -2,7 +2,7 @@
  * CivicPulse PWA Service Worker
  */
 
-const CACHE_NAME = "civicpulse-pwa-cache-v1";
+const CACHE_NAME = "civicpulse-pwa-cache-v2";
 const ASSETS_TO_CACHE = [
   "/",
   "/index.html",

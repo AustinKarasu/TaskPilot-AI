@@ -6,6 +6,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { MessageSquare, Send, X, Bot, Sparkles, AlertCircle } from "lucide-react";
 import { User } from "../types";
+import { askCivicPulseChatbot } from "../lib/clientAi";
 
 interface Message {
   role: "user" | "assistant";
@@ -53,28 +54,15 @@ export default function AIChatbot({ language, theme, currentUser }: AIChatbotPro
         .slice(1) // skip the initial greeting
         .map((m) => ({ role: m.role, text: m.text }));
 
-      const res = await fetch("/api/chatbot", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: textToSend, history, userId: currentUser?.id || "anonymous_guest" })
-      });
-
-      if (!res.ok) {
-        throw new Error("Chatbot API response error");
-      }
-
-      const data = await res.json();
-      setMessages((prev) => [...prev, { role: "assistant", text: data.reply }]);
+      const reply = await askCivicPulseChatbot(textToSend, history);
+      setMessages((prev) => [...prev, { role: "assistant", text: reply }]);
     } catch (err) {
       console.error("Failed to fetch chatbot response:", err);
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
-          text:
-            language === "hi"
-              ? "क्षमा करें, AI असिस्टेंट सेवा वर्तमान में ऑफ़लाइन है। कृपया कुछ समय बाद पुनः प्रयास करें।"
-              : "I'm sorry, the AI chatbot service is temporarily offline. Please try again in a few moments.",
+          text: err instanceof Error ? err.message : "Gemini chatbot request failed.",
           isError: true
         }
       ]);
@@ -110,7 +98,7 @@ export default function AIChatbot({ language, theme, currentUser }: AIChatbotPro
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-gradient-to-tr from-cyan-500 via-sky-500 to-indigo-600 hover:scale-105 active:scale-95 text-white rounded-full shadow-[0_8px_30px_rgb(6,182,212,0.3)] transition-all duration-300 flex items-center justify-center cursor-pointer group"
+        className="fixed bottom-6 right-6 z-[70] w-14 h-14 bg-gradient-to-tr from-cyan-500 via-sky-500 to-indigo-600 hover:scale-105 active:scale-95 text-white rounded-full shadow-[0_8px_30px_rgb(6,182,212,0.3)] transition-all duration-300 flex items-center justify-center cursor-pointer group"
         id="ai-chatbot-trigger"
         title="CivicPulse AI Chatbot"
       >
@@ -130,7 +118,7 @@ export default function AIChatbot({ language, theme, currentUser }: AIChatbotPro
       {/* CONVERSATION PANEL */}
       {isOpen && (
         <div
-          className="fixed bottom-24 right-6 z-50 w-[92vw] sm:w-[380px] h-[520px] max-h-[75vh] sm:max-h-[80vh] bg-slate-950/85 backdrop-blur-xl border border-cyan-500/30 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] overflow-hidden flex flex-col animate-scale-up font-sans"
+          className="fixed bottom-24 right-6 z-[70] w-[92vw] sm:w-[380px] h-[520px] max-h-[75vh] sm:max-h-[80vh] bg-slate-950/85 backdrop-blur-xl border border-cyan-500/30 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] overflow-hidden flex flex-col animate-scale-up font-sans"
           id="ai-chatbot-panel"
         >
           {/* HEADER HEADER */}

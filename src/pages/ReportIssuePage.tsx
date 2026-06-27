@@ -5,8 +5,8 @@ import { useRepository } from "../services/repository";
 import { TRANSLATIONS } from "../i18n/translations";
 import { getCategoryFallbackImage } from "./LandingPage";
 import { Camera, MapPin, Sparkles, Mic, ChevronRight, ChevronLeft, Check, AlertOctagon, HelpCircle, Loader2, RefreshCw, Layers, Vote, Navigation } from "lucide-react";
-import { getAuthHeaders } from "../lib/api";
 import { getAppMode } from "../services/appMode";
+import { analyzeIssueEvidence, improveIssueDescription } from "../lib/clientAi";
 
 interface AddressSuggestion {
   id: string;
@@ -353,13 +353,8 @@ export default function ReportIssuePage({
     setLoading(true);
     setLoadingStage("Enhancing submission language...");
     try {
-      const res = await fetch("/api/gemini/improve-description", {
-        method: "POST",
-        headers: await getAuthHeaders(),
-        body: JSON.stringify({ originalDescription: description, preferredLanguage: selectedLanguage })
-      });
-      const payload = await res.json();
-      setDescription(payload.improvedText);
+      const improvedText = await improveIssueDescription(description, selectedLanguage);
+      setDescription(improvedText);
     } catch (err) {
       console.error(err);
     } finally {
@@ -383,39 +378,13 @@ export default function ReportIssuePage({
     try {
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 15000);
-      const res = await fetch("/api/gemini/analyze-evidence", {
-        method: "POST",
-        headers: await getAuthHeaders(),
-        body: JSON.stringify({
-          imageBase64: imagePayload,
-          originalDescription: description,
-          categoryHint: ""
-        }),
-        signal: controller.signal
-      });
+      const payload = await analyzeIssueEvidence(imagePayload, description, controller.signal);
       clearTimeout(timeout);
-      const payload = await res.json();
-      setAiResult(payload.data);
+      setAiResult(payload);
       setStep(4); // Advance to review Step
     } catch (err) {
       console.error(err);
-      // Fallback
-      setAiResult({
-        title: "AI Extracted: Reported civic failure near coordinates",
-        summary: "Analysis indicates a valid structural failure corresponding to citizen description. Verified on metadata grid.",
-        category: "Roads & Traffic",
-        subcategory: "Potholes",
-        severity: "medium",
-        confidence: 0.90,
-        visibleEvidence: ["Asphalt tearing", "Debris accumulation"],
-        possibleRisks: ["Vehicular instability", "Pedestrian tripping"],
-        suggestedDepartment: "Public Works & Highways (PWD)",
-        recommendedResponseTime: "36 hours",
-        citizenSafetyAdvice: "Exercise speed dampening.",
-        duplicateSearchTerms: ["pothole"],
-        requiresManualReview: false
-      });
-      setStep(4);
+      alert(err instanceof Error ? err.message : "Gemini image analysis failed.");
     } finally {
       setLoading(false);
     }

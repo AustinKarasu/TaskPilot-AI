@@ -106,8 +106,8 @@ export default function AuthPage({ onAuthSuccess, onNavigate, language }: AuthPa
       setSuccessMsg("Welcome! Authenticated via Google.");
       setTimeout(() => {
         onAuthSuccess();
-        onNavigate("landing");
-      }, 150);
+        onNavigate("dashboard");
+      }, 50);
     } catch (err: any) {
       console.error("Google Sign-In Error:", err);
       setErrorMsg(err.message || "Failed to authenticate with Google.");
@@ -206,8 +206,8 @@ export default function AuthPage({ onAuthSuccess, onNavigate, language }: AuthPa
           setSuccessMsg("Welcome back! Authentication confirmed.");
           setTimeout(() => {
             onAuthSuccess();
-            onNavigate("landing");
-          }, 150);
+            onNavigate("dashboard");
+          }, 50);
         }
       }
     } catch (err: any) {
@@ -243,8 +243,8 @@ export default function AuthPage({ onAuthSuccess, onNavigate, language }: AuthPa
         setSuccessMsg("Account registered successfully! Redirecting...");
         setTimeout(() => {
           onAuthSuccess();
-          onNavigate("landing");
-        }, 150);
+          onNavigate("dashboard");
+        }, 50);
       }
     } catch (err: any) {
       setErrorMsg(err.message || "Email verification failed.");
@@ -279,8 +279,8 @@ export default function AuthPage({ onAuthSuccess, onNavigate, language }: AuthPa
         setSuccessMsg("Verification success! Access granted.");
         setTimeout(() => {
           onAuthSuccess();
-          onNavigate("landing");
-        }, 150);
+          onNavigate("dashboard");
+        }, 50);
       }
     } catch (err: any) {
       setErrorMsg(err.message || "2FA Verification failed.");
@@ -376,8 +376,8 @@ export default function AuthPage({ onAuthSuccess, onNavigate, language }: AuthPa
         setSuccessMsg(`Welcome, ${emailVal}! Access granted.`);
         setTimeout(() => {
           onAuthSuccess();
-          onNavigate("landing");
-        }, 150);
+          onNavigate("dashboard");
+        }, 50);
       }
     } catch (err: any) {
       setErrorMsg(err.message || "Quick login failed.");

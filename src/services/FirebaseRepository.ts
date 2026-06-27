@@ -9,6 +9,7 @@ import { initializeApp, getApps, getApp } from "firebase/app";
 import { SEEDED_DEPARTMENTS } from "../data/seedData";
 import { getFirestore, Firestore, collection, doc, getDocs, getDoc, setDoc, addDoc, updateDoc, query, where, orderBy, writeBatch, deleteDoc } from "firebase/firestore";
 import { getStorage, FirebaseStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { getClientFirebaseConfig } from "../lib/firebaseConfig";
 
 let firestoreInstance: Firestore | null = null;
 let storageInstance: FirebaseStorage | null = null;
@@ -17,6 +18,15 @@ let initPromise: Promise<void> | null = null;
 export function ensureFirebaseInitialized(): Promise<void> {
   if (initPromise) return initPromise;
   
+  const clientConfig = getClientFirebaseConfig();
+  if (clientConfig) {
+    const app = !getApps().length ? initializeApp(clientConfig) : getApp();
+    firestoreInstance = getFirestore(app);
+    storageInstance = getStorage(app);
+    initPromise = Promise.resolve();
+    return initPromise;
+  }
+
   initPromise = fetch("/api/config")
     .then(async (res) => {
       if (!res.ok) {

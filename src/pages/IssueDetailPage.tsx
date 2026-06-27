@@ -9,8 +9,8 @@ import { dbService } from "../services/db";
 import { TRANSLATIONS } from "../i18n/translations";
 import { getCategoryFallbackImage } from "./LandingPage";
 import { Check, AlertTriangle, MessageSquare, ThumbsUp, ThumbsDown, Calendar, Landmark, MapPin, Award, CheckCircle, ShieldAlert, Sparkles, Loader2, ArrowLeft, RefreshCw, Lock } from "lucide-react";
-import { getAuthHeaders } from "../lib/api";
 import { getAppMode } from "../services/appMode";
+import { verifyResolutionEvidence } from "../lib/clientAi";
 
 interface IssueDetailPageProps {
   issueId: string;
@@ -116,16 +116,11 @@ export default function IssueDetailPage({
     setIsComparing(true);
 
     try {
-      const res = await fetch("/api/gemini/compare-before-after", {
-        method: "POST",
-        headers: await getAuthHeaders(),
-        body: JSON.stringify({
-          beforeImageBase64: issue.evidence[0]?.url || "",
-          afterImageBase64: afterPhotoBase64 || selectedAfterPhoto || "",
-          adminNotes: adminNoteInput
-        })
-      });
-      const data = await res.json();
+      const data = await verifyResolutionEvidence(
+        issue.evidence[0]?.url || "",
+        afterPhotoBase64 || selectedAfterPhoto || "",
+        adminNoteInput
+      );
       
       // Save changes on database
       const confidence = data.confidence !== undefined ? data.confidence : 100;

@@ -7,6 +7,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { User } from "../types";
 import { useRepository } from "../services/repository";
 import { getAppMode } from "../services/appMode";
+import { getClientFirebaseConfig } from "../lib/firebaseConfig";
 
 export interface AuthContextType {
   status: "initializing" | "authenticated" | "anonymous" | "error";
@@ -43,6 +44,27 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   
   const mode = getAppMode();
 
+  const buildFirebaseUserProfile = (firebaseUser: any): User => ({
+    id: firebaseUser.uid,
+    name: firebaseUser.displayName || "Google Citizen",
+    email: firebaseUser.email || "",
+    avatar: firebaseUser.photoURL || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=150",
+    role: "citizen",
+    language: "en",
+    civicScore: 0,
+    trustScore: 90,
+    badges: [],
+    joinedAt: new Date().toISOString()
+  });
+
+  const applyAuthenticatedUser = (profile: User) => {
+    setUser(profile);
+    setStatus("authenticated");
+    localStorage.setItem("civiclens_current_user_id", profile.id);
+    localStorage.setItem("civiclens_is_signed_in", "true");
+    window.dispatchEvent(new Event("civiclens_user_changed"));
+  };
+
   useEffect(() => {
     const previousAuthMode = localStorage.getItem("civiclens_auth_mode");
     if (previousAuthMode !== mode) {
@@ -56,29 +78,25 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const fallbackTimeout = setTimeout(() => {
       setStatus(currentStatus => {
         if (currentStatus === "initializing") {
-          console.warn("Auth initialization timed out. Falling back to anonymous guest access.");
-          return "anonymous";
+          console.warn("Auth initialization timed out.");
+          return mode === "firebase" ? "error" : "anonymous";
         }
         return currentStatus;
       });
     }, 4000);
 
-    fetch("/api/config")
-      .then(async (res) => {
-        if (!res.ok) {
-          throw new Error(`Server returned status ${res.status}`);
-        }
-        const text = await res.text();
-        if (!text) {
-          throw new Error("Configuration response body is empty.");
-        }
-        return JSON.parse(text);
-      })
-      .then(async (data) => {
+    const clientFirebaseConfig = getClientFirebaseConfig();
+    const initializeAuth = async (data: any) => {
         const isFirebaseAvailable = !!(data && data.hasFirebase && data.firebaseConfig);
         setHasFirebase(isFirebaseAvailable);
         setFirebaseConfig(data.firebaseConfig);
         setEnable2FA(!!(data && data.enable2FA));
+
+        if (mode === "firebase" && !isFirebaseAvailable) {
+          console.error("Firebase mode is enabled but Firebase browser configuration is unavailable.");
+          setStatus("error");
+          return;
+        }
 
         if (mode === "firebase" && isFirebaseAvailable) {
           try {
@@ -105,18 +123,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
                     localStorage.setItem("civiclens_is_signed_in", "true");
                   } else {
                     // Create minimal citizen profile on first login if it doesn't exist
-                    const defaultProfile: User = {
-                      id: firebaseUser.uid,
-                      name: firebaseUser.displayName || "Google Citizen",
-                      email: firebaseUser.email || "",
-                      avatar: firebaseUser.photoURL || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=150",
-                      role: "citizen", // Always citizen at register/first login
-                      language: "en",
-                      civicScore: 0,
-                      trustScore: 90,
-                      badges: [],
-                      joinedAt: new Date().toISOString()
-                    };
+                    const defaultProfile = buildFirebaseUserProfile(firebaseUser);
                     await repository.setCurrentUser(firebaseUser.uid);
                     // Save to Firestore manually if not present
                     try {
@@ -132,19 +139,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
                     localStorage.setItem("civiclens_is_signed_in", "true");
                   }
                 } catch (err) {
-                  console.warn("Failed to fetch user profile from Firestore, using client-side fallback:", err);
-                  const defaultProfile: User = {
-                    id: firebaseUser.uid,
-                    name: firebaseUser.displayName || "Google Citizen",
-                    email: firebaseUser.email || "",
-                    avatar: firebaseUser.photoURL || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=150",
-                    role: "citizen",
-                    language: "en",
-                    civicScore: 0,
-                    trustScore: 90,
-                    badges: [],
-                    joinedAt: new Date().toISOString()
-                  };
+                  console.warn("Failed to fetch user profile from Firestore, using authenticated Firebase profile:", err);
+                  const defaultProfile = buildFirebaseUserProfile(firebaseUser);
                   setUser(defaultProfile);
                   setStatus("authenticated");
                   localStorage.setItem("civiclens_current_user_id", firebaseUser.uid);
@@ -187,9 +183,38 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             localStorage.setItem("civiclens_is_signed_in", "false");
           }
         }
-      })
+    };
+
+    const configPromise = clientFirebaseConfig
+      ? Promise.resolve({
+          hasFirebase: true,
+          firebaseConfig: clientFirebaseConfig,
+          enable2FA: false
+        })
+      : fetch("/api/config")
+      .then(async (res) => {
+        if (!res.ok) {
+          throw new Error(`Server returned status ${res.status}`);
+        }
+        const text = await res.text();
+        if (!text) {
+          throw new Error("Configuration response body is empty.");
+        }
+        return JSON.parse(text);
+      });
+    configPromise
+      .then(initializeAuth)
       .catch((err) => {
-        console.warn("Failed to load backend config, falling back to demo mode:", err);
+        console.warn("Failed to load backend config:", err);
+        if (mode === "firebase") {
+          setHasFirebase(false);
+          setFirebaseConfig(null);
+          setEnable2FA(false);
+          setUser(null);
+          setStatus("error");
+          localStorage.setItem("civiclens_is_signed_in", "false");
+          return;
+        }
         setHasFirebase(false);
         setFirebaseConfig(null);
         setEnable2FA(false);
@@ -381,8 +406,24 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       provider.setCustomParameters({
         prompt: "select_account"
       });
-      await signInWithPopup(firebaseAuth, provider);
+      const credential = await signInWithPopup(firebaseAuth, provider);
+      const profile = buildFirebaseUserProfile(credential.user);
+      applyAuthenticatedUser(profile);
+
+      void (async () => {
+        try {
+          await repository.setCurrentUser(credential.user.uid);
+          const { getFirestore, doc, setDoc } = await import("firebase/firestore");
+          const db = getFirestore();
+          await setDoc(doc(db, "users", credential.user.uid), profile, { merge: true });
+        } catch (err) {
+          console.error("Failed to sync Google user profile to Firestore:", err);
+        }
+      })();
     } else {
+      if (mode === "firebase") {
+        throw new Error("Firebase Google sign-in is not configured. Check Firebase web config and authorized domains.");
+      }
       const demoEmail = "google-citizen@gmail.com";
       const demoName = "Arjun Google (Demo)";
       

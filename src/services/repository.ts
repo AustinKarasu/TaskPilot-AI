@@ -56,12 +56,14 @@ export { getAppMode };
 
 export const RepositoryProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [repo, setRepo] = React.useState<CivicRepository | null>(null);
+  const [initError, setInitError] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     let cancelled = false;
     const setLocalDemoRepository = () => {
       import("./LocalDemoRepository").then(({ LocalDemoRepository }) => {
         if (!cancelled) {
+          setInitError(null);
           setRepo(new LocalDemoRepository());
         }
       });
@@ -82,6 +84,7 @@ export const RepositoryProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       import("./FirebaseRepository").then(({ FirebaseRepository, ensureFirebaseInitialized, getFirestoreInstance }) => {
         ensureFirebaseInitialized().then(() => {
           if (cancelled) return;
+          setInitError(null);
           setRepo(new FirebaseRepository());
           const db = getFirestoreInstance();
           if (db) {
@@ -151,12 +154,16 @@ export const RepositoryProvider: React.FC<{ children: React.ReactNode }> = ({ ch
             });
           }
         }).catch(err => {
-          console.warn("FirebaseRepository unavailable, falling back to LocalDemoRepository:", err.message);
-          setLocalDemoRepository();
+          console.error("FirebaseRepository unavailable in production mode:", err);
+          if (!cancelled) {
+            setInitError(`Firebase repository failed to initialize: ${err instanceof Error ? err.message : String(err)}`);
+          }
         });
       }).catch(err => {
-        console.error("Failed to initialize FirebaseRepository, falling back to LocalDemoRepository:", err);
-        setLocalDemoRepository();
+        console.error("Failed to load FirebaseRepository in production mode:", err);
+        if (!cancelled) {
+          setInitError(`Firebase repository failed to load: ${err instanceof Error ? err.message : String(err)}`);
+        }
       });
     } else {
       setLocalDemoRepository();
@@ -166,6 +173,15 @@ export const RepositoryProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       cancelled = true;
     };
   }, []);
+
+  if (initError) {
+    return React.createElement(
+      "div",
+      { className: "min-h-screen bg-slate-950 text-rose-300 flex flex-col items-center justify-center font-mono text-xs gap-3 px-6 text-center" },
+      React.createElement("div", { className: "text-sm font-bold text-rose-200" }, "CivicPulse Firebase initialization failed"),
+      React.createElement("div", { className: "max-w-xl text-rose-300/80" }, initError)
+    );
+  }
 
   if (!repo) {
     return React.createElement(
