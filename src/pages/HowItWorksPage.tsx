@@ -87,7 +87,7 @@ export default function HowItWorksPage({ onNavigate, language }: HowItWorksPageP
         </h1>
         <p className="text-xs sm:text-sm text-theme-muted max-w-xl mx-auto leading-relaxed">
           {language === "en"
-            ? "CivicLens AI combines community crowd-sourcing, Gemini multimodal vision models, and a decentralized ledger of dispatches to accelerate urban civic repairs."
+            ? "CivicPulse AI combines community crowd-sourcing, Gemini multimodal vision models, and a decentralized ledger of dispatches to accelerate urban civic repairs."
             : "सिविक लेंस एआई शहरी नागरिक मरम्मत को तेज करने के लिए सामुदायिक क्राउड-सोर्सिंग, जेमिनी मल्टीमॉडल विज़न मॉडल और एक पारदर्शी नगरपालिका बही का संयोजन करता है।"}
         </p>
       </div>

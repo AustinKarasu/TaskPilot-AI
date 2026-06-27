@@ -49,10 +49,10 @@ export default function TestimonialsPage({ onNavigate, language }: TestimonialsP
   };
 
   useEffect(() => {
-    document.title = isHi ? "प्रशंसापत्र और समीक्षाएं | CivicLens" : "Reviews & Testimonials | CivicLens AI";
+    document.title = isHi ? "प्रशंसापत्र और समीक्षाएं | CivicPulse" : "Reviews & Testimonials | CivicPulse AI";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Citizen reviews and testimonials for CivicLens AI platform.");
+      metaDesc.setAttribute("content", "Citizen reviews and testimonials for CivicPulse AI platform.");
     }
     fetchTestimonials();
   }, [language]);
@@ -205,7 +205,7 @@ export default function TestimonialsPage({ onNavigate, language }: TestimonialsP
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                     rows={4}
-                    placeholder={isHi ? "अपना अनुभव यहाँ लिखें..." : "Share your experience with CivicLens..."}
+                    placeholder={isHi ? "अपना अनुभव यहाँ लिखें..." : "Share your experience with CivicPulse..."}
                     className="w-full bg-slate-900/60 border border-cyan-500/10 focus:border-cyan-500/40 focus:outline-none rounded-xl text-xs p-3 text-white placeholder-slate-500"
                     disabled={isLoading}
                   ></textarea>
@@ -247,7 +247,7 @@ export default function TestimonialsPage({ onNavigate, language }: TestimonialsP
                   {isHi ? "नागरिक प्रतिक्रियाएं" : "Citizen Feedbacks"}
                 </h1>
                 <p className="text-xs text-slate-400">
-                  {isHi ? "जानें पड़ोसियों का सिविक लेंस के बारे में क्या कहना है।" : "Read what other auditors say about CivicLens."}
+                  {isHi ? "जानें पड़ोसियों का सिविक लेंस के बारे में क्या कहना है।" : "Read what other auditors say about CivicPulse."}
                 </p>
               </div>
 

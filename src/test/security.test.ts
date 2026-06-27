@@ -61,7 +61,7 @@ function createToken(payload: any, header = { alg: "RS256", kid: "test-kid", typ
   return `${headerB64}.${payloadB64}.${signatureB64}`;
 }
 
-describe("CivicLens AI Security & Integrity Test Suite", () => {
+describe("CivicPulse AI Security & Integrity Test Suite", () => {
   const projectId = process.env.FIREBASE_PROJECT_ID || "gen-lang-client-0000039141";
 
   describe("Cryptographic Token Verification (Firebase Mode)", () => {

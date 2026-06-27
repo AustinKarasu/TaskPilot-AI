@@ -41,10 +41,10 @@ export default function ContactPage({ onNavigate, language, currentUser }: Conta
 
   useEffect(() => {
     generateCaptcha();
-    document.title = isHi ? "संपर्क करें | CivicLens" : "Contact Support Desk | CivicLens AI";
+    document.title = isHi ? "संपर्क करें | CivicPulse" : "Contact Support Desk | CivicPulse AI";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Contact CivicLens support desk. File support tickets and get assistance.");
+      metaDesc.setAttribute("content", "Contact CivicPulse support desk. File support tickets and get assistance.");
     }
   }, [language]);
 

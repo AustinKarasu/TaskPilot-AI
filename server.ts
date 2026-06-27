@@ -701,7 +701,7 @@ function loadDatabase() {
         {
           id: "ann_2",
           title: "Monsoon Preparedness Drainage Cleaning Drive",
-          content: "The BWSSB sanitary division has initiated high-pressure desilting and clearing of primary storm water drains cross-connecting sector lakes. Citizens can report blocked grates directly on CivicLens to direct crews.",
+          content: "The BWSSB sanitary division has initiated high-pressure desilting and clearing of primary storm water drains cross-connecting sector lakes. Citizens can report blocked grates directly on CivicPulse to direct crews.",
           createdAt: "2026-06-21T10:30:00Z",
           category: "info",
           department: "Water & Sewerage (BWSSB)",
@@ -1913,6 +1913,25 @@ const handleGeminiVerifyResolution = async (req: Request, res: Response) => {
     return;
   }
 
+  const createMockVerification = () => {
+    const isActuallyResolved = !adminNotes.toLowerCase().includes("fail") && !adminNotes.toLowerCase().includes("reject") && !adminNotes.toLowerCase().includes("incomplete");
+    const confidence = isActuallyResolved ? 88 : 42;
+    const notes = isActuallyResolved
+      ? `[Demo mode: Mock Gemini Verification] Confirmed resolution. Pothole filled and road paved successfully. Visual comparison shows 100% clearing of debris and structural correction matching administrative notes: "${adminNotes || "No notes provided"}".`
+      : `[Demo mode: Mock Gemini Verification] Resolution failed inspection. The uploaded photo does not show complete repair. Residual trash/defect is still visible. Secondary manual inspection is recommended. Notes provided: "${adminNotes || "None"}".`;
+
+    return {
+      confidence,
+      notes,
+      resolved: isActuallyResolved
+    };
+  };
+
+  if (process.env.NODE_ENV === "test") {
+    res.json(createMockVerification());
+    return;
+  }
+
   // Check if GEMINI_API_KEY is present
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
@@ -1921,18 +1940,7 @@ const handleGeminiVerifyResolution = async (req: Request, res: Response) => {
       return;
     }
     // Mock fallback when Gemini API Key is missing (e.g. demo mode / local development)
-    const isActuallyResolved = !adminNotes.toLowerCase().includes("fail") && !adminNotes.toLowerCase().includes("reject") && !adminNotes.toLowerCase().includes("incomplete");
-    const confidence = isActuallyResolved ? 88 : 42;
-    const notes = isActuallyResolved
-      ? `[Demo mode: Mock Gemini Verification] Confirmed resolution. Pothole filled and road paved successfully. Visual comparison shows 100% clearing of debris and structural correction matching administrative notes: "${adminNotes || 'No notes provided'}".`
-      : `[Demo mode: Mock Gemini Verification] Resolution failed inspection. The uploaded photo does not show complete repair. Residual trash/defect is still visible. Secondary manual inspection is recommended. Notes provided: "${adminNotes || 'None'}".`;
-    
-    const mockResponse = {
-      confidence,
-      notes,
-      resolved: isActuallyResolved
-    };
-    res.json(mockResponse);
+    res.json(createMockVerification());
     return;
   }
 
@@ -2248,9 +2256,9 @@ const handleChatbot = async (req: Request, res: Response) => {
         referenceContext = `Here is some official pre-coded reference Q&A information related to the user's question:\nReference Answer: ${bestMatch.answer}\n`;
       }
 
-      const systemInstruction = `You are the CivicLens AI Chatbot, a helpful assistant for the CivicLens AI platform.
-Your ONLY goal is to answer questions about CivicLens AI, its theme, site features, functionality, and developer details.
-CivicLens AI is a hyperlocal infrastructure auditing and problem resolution platform.
+      const systemInstruction = `You are the CivicPulse AI Chatbot, a helpful assistant for the CivicPulse AI platform.
+Your ONLY goal is to answer questions about CivicPulse AI, its theme, site features, functionality, and developer details.
+CivicPulse AI is a hyperlocal infrastructure auditing and problem resolution platform.
 
 ${referenceContext}
 
@@ -2259,9 +2267,9 @@ Developer/Creator Details: This website was developed by Aayan Parmar (Aayan Kar
 CRITICAL RULES:
 - If a user wants to open, submit, or create a support ticket, ask them for their name, email, subject, and message if any are missing. Once they provide all required information, use the createSupportTicket tool to register the ticket.
 - You must use the provided official reference Q&A information (if present) to formulate a precise, helpful, and natural AI-generated answer.
-- You must ONLY answer questions directly related to CivicLens AI, its theme, its site, its developer, and its features.
-- If a user asks a question about ANYTHING else (e.g. general coding, recipes, writing stories, math, history, weather, general news, other companies), you MUST politely refuse to answer. You can say something like: "I'm sorry, but I am only able to answer questions related to the CivicLens AI platform, its features, and its theme. Let me know if you have any questions about reporting issues, verifying tickets, or earning points!"
-- Do not bypass this rule under any circumstances. If the query is ambiguous, try to steer it back to CivicLens AI.
+- You must ONLY answer questions directly related to CivicPulse AI, its theme, its site, its developer, and its features.
+- If a user asks a question about ANYTHING else (e.g. general coding, recipes, writing stories, math, history, weather, general news, other companies), you MUST politely refuse to answer. You can say something like: "I'm sorry, but I am only able to answer questions related to the CivicPulse AI platform, its features, and its theme. Let me know if you have any questions about reporting issues, verifying tickets, or earning points!"
+- Do not bypass this rule under any circumstances. If the query is ambiguous, try to steer it back to CivicPulse AI.
 - Keep your answers concise, premium, and friendly. Use formatting like bullet points or bold text if helpful.`;
 
       const tools = [{
@@ -2337,7 +2345,7 @@ CRITICAL RULES:
 
   if (!isRelated) {
     res.json({
-      reply: "I'm sorry, but I am only able to answer questions related to the CivicLens AI platform, its features, and its theme. Let me know if you have any questions about reporting issues, verifying tickets, or earning points!"
+      reply: "I'm sorry, but I am only able to answer questions related to the CivicPulse AI platform, its features, and its theme. Let me know if you have any questions about reporting issues, verifying tickets, or earning points!"
     });
     return;
   }
@@ -2351,7 +2359,7 @@ CRITICAL RULES:
   }
 
   res.json({
-    reply: "CivicLens AI is a hyperlocal infrastructure auditing platform. It coordinates citizen reports, peer verifications, and municipal resolution tracking with Gemini AI integrations. Let me know if you want to know about reporting, earning points, the leaderboard, announcements, or the map!"
+    reply: "CivicPulse AI is a hyperlocal infrastructure auditing platform. It coordinates citizen reports, peer verifications, and municipal resolution tracking with Gemini AI integrations. Let me know if you want to know about reporting, earning points, the leaderboard, announcements, or the map!"
   });
 };
 
@@ -2400,7 +2408,7 @@ apiRouter.get("/geocode/search", rateLimiter, validateQuery(GeocodeSearchSchema)
     const upstream = await fetch(url, {
       signal: controller.signal,
       headers: {
-        "User-Agent": "CivicLensAI/1.0 (aayankarasu@gmail.com)",
+        "User-Agent": "CivicPulseAI/1.0 (aayankarasu@gmail.com)",
         "Accept": "application/json"
       }
     });
@@ -2451,7 +2459,7 @@ apiRouter.get("/geocode/reverse", rateLimiter, validateQuery(GeocodeReverseSchem
     const upstream = await fetch(url, {
       signal: controller.signal,
       headers: {
-        "User-Agent": "CivicLensAI/1.0 (aayankarasu@gmail.com)",
+        "User-Agent": "CivicPulseAI/1.0 (aayankarasu@gmail.com)",
         "Accept": "application/json"
       }
     });

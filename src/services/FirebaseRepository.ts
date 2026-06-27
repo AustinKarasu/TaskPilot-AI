@@ -338,7 +338,7 @@ export class FirebaseRepository implements CivicRepository {
                         previousStatus: IssueStatus.NEW,
                         newStatus: IssueStatus.VERIFIED,
                         updatedBy: "system",
-                        updatedByName: "CivicLens AI System",
+                        updatedByName: "CivicPulse AI System",
                         publicMessage: "Issue automatically escalated to Verified status following continuous community confirmations.",
                         createdAt: new Date().toISOString()
                       });

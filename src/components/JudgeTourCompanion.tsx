@@ -209,7 +209,7 @@ export default function JudgeTourCompanion({ onNavigate, language }: JudgeTourCo
               <Sparkles className="w-5 h-5 text-cyan-400 animate-pulse" />
               <div>
                 <h4 className="text-xs font-black tracking-widest text-white uppercase">Judge Co-Pilot Panel</h4>
-                <p className="text-[9px] font-mono text-cyan-300 uppercase mt-0.5">CivicLens AI — Judge Demo</p>
+                <p className="text-[9px] font-mono text-cyan-300 uppercase mt-0.5">CivicPulse AI — Judge Demo</p>
               </div>
             </div>
 
@@ -242,7 +242,7 @@ export default function JudgeTourCompanion({ onNavigate, language }: JudgeTourCo
             {/* STEP 1: WELCOME & START TRIAL */}
             {step === 1 && (
               <div>
-                <h3 className="text-sm font-extrabold text-white mb-2 tracking-tight">CivicLens AI Trial Journey</h3>
+                <h3 className="text-sm font-extrabold text-white mb-2 tracking-tight">CivicPulse AI Trial Journey</h3>
                 <p className="text-xs text-slate-300 leading-relaxed mb-4">
                   Welcome, Hackathon Judge. This co-pilot guides you through a full **7-phase community issue lifecycle**. Witness how AI-powered evidence analysis, geolocation clustering, and visual audit comparisons accelerate urban governance and prevent duplicate complaints.
                 </p>
@@ -330,7 +330,7 @@ export default function JudgeTourCompanion({ onNavigate, language }: JudgeTourCo
               <div>
                 <h3 className="text-sm font-extrabold text-white mb-1.5 tracking-tight">Step 4: Duplicate Clusters Block</h3>
                 <p className="text-xs text-slate-300 leading-relaxed mb-4">
-                  Municipal centers are drowned in identical complaints. CivicLens AI automatically groups tickets within 50m of active reports. If you test reporting the school pothole again, CivicLens blocks duplicates and redirects votes!
+                  Municipal centers are drowned in identical complaints. CivicPulse AI automatically groups tickets within 50m of active reports. If you test reporting the school pothole again, CivicPulse blocks duplicates and redirects votes!
                 </p>
                 
                 <button

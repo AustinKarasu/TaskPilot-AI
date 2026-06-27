@@ -27,7 +27,7 @@ export default function AIChatbot({ language, theme, currentUser }: AIChatbotPro
       text:
         language === "hi"
           ? "नमस्ते! मैं सिविक लेंस AI सहायक हूँ। मैं इस प्लेटफॉर्म, इसके डार्क थीम, शिकायत दर्ज करने, नागरिक सत्यापन, और पुरस्कारों से संबंधित प्रश्नों के उत्तर दे सकता हूँ। मैं आपकी आज कैसे मदद कर सकता हूँ?"
-          : "Hello! I am the CivicLens AI assistant. I can answer questions about the CivicLens platform, its features, dark glassmorphism design, reporting, verification, and points/leaderboard. How can I help you today?"
+          : "Hello! I am the CivicPulse AI assistant. I can answer questions about the CivicPulse platform, its features, dark glassmorphism design, reporting, verification, and points/leaderboard. How can I help you today?"
     }
   ]);
   const [inputValue, setInputValue] = useState("");
@@ -97,7 +97,7 @@ export default function AIChatbot({ language, theme, currentUser }: AIChatbotPro
           "मेरी गोपनीयता और स्थान कैसे सुरक्षित हैं?"
         ]
       : [
-          "What is CivicLens AI & how does it help?",
+          "What is CivicPulse AI & how does it help?",
           "How does Gemini AI verify completed repairs?",
           "How are reports validated by the community?",
           "How do I earn points & claim rewards?",
@@ -112,7 +112,7 @@ export default function AIChatbot({ language, theme, currentUser }: AIChatbotPro
         onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-gradient-to-tr from-cyan-500 via-sky-500 to-indigo-600 hover:scale-105 active:scale-95 text-white rounded-full shadow-[0_8px_30px_rgb(6,182,212,0.3)] transition-all duration-300 flex items-center justify-center cursor-pointer group"
         id="ai-chatbot-trigger"
-        title="CivicLens AI Chatbot"
+        title="CivicPulse AI Chatbot"
       >
         <div className="relative">
           {isOpen ? (
@@ -142,7 +142,7 @@ export default function AIChatbot({ language, theme, currentUser }: AIChatbotPro
                 <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 rounded-full ring-2 ring-slate-900"></span>
               </div>
               <div className="text-left">
-                <h4 className="text-xs font-black tracking-widest text-white uppercase font-display">CivicLens AI Agent</h4>
+                <h4 className="text-xs font-black tracking-widest text-white uppercase font-display">CivicPulse AI Agent</h4>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping"></span>
                   <span className="text-[9px] font-mono text-cyan-300 uppercase tracking-wide">Online Support</span>

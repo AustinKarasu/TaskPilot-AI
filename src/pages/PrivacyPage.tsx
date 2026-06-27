@@ -13,11 +13,11 @@ interface PrivacyPageProps {
 
 export default function PrivacyPage({ onNavigate, language }: PrivacyPageProps) {
   useEffect(() => {
-    document.title = language === "hi" ? "गोपनीयता नीति | CivicLens" : "Privacy Policy | CivicLens AI";
+    document.title = language === "hi" ? "गोपनीयता नीति | CivicPulse" : "Privacy Policy | CivicPulse AI";
     // Set meta description dynamically
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Privacy Policy for CivicLens AI metropolitan digital infrastructure auditing platform.");
+      metaDesc.setAttribute("content", "Privacy Policy for CivicPulse AI metropolitan digital infrastructure auditing platform.");
     }
   }, [language]);
 

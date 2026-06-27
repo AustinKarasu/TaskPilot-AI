@@ -24,10 +24,10 @@ export default function FAQPage({ onNavigate, language }: FAQPageProps) {
   const [expandedIds, setExpandedIds] = useState<number[]>([]);
 
   useEffect(() => {
-    document.title = language === "hi" ? "अक्सर पूछे जाने वाले प्रश्न | CivicLens" : "FAQ Knowledge Base | CivicLens AI";
+    document.title = language === "hi" ? "अक्सर पूछे जाने वाले प्रश्न | CivicPulse" : "FAQ Knowledge Base | CivicPulse AI";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Frequently Asked Questions about CivicLens AI platform, rewards, auditing, and developer.");
+      metaDesc.setAttribute("content", "Frequently Asked Questions about CivicPulse AI platform, rewards, auditing, and developer.");
     }
   }, [language]);
 
@@ -37,10 +37,10 @@ export default function FAQPage({ onNavigate, language }: FAQPageProps) {
     {
       id: 1,
       category: "general",
-      question: isHi ? "सिविक लेंस एआई क्या है?" : "What is CivicLens AI?",
+      question: isHi ? "सिविक लेंस एआई क्या है?" : "What is CivicPulse AI?",
       answer: isHi 
         ? "यह एक हाइपरलोकल इंफ्रास्ट्रक्चर ऑडिटिंग प्लेटफॉर्म है जो नागरिकों को बुनियादी ढांचा समस्याओं की रिपोर्ट करने और नगरपालिकाओं के साथ काम करके उनका समाधान करने में मदद करता है।" 
-        : "CivicLens AI is a hyperlocal infrastructure auditing and problem resolution platform. It coordinates citizen reports, peer verifications, and municipal resolution tracking using Gemini AI integrations."
+        : "CivicPulse AI is a hyperlocal infrastructure auditing and problem resolution platform. It coordinates citizen reports, peer verifications, and municipal resolution tracking using Gemini AI integrations."
     },
     {
       id: 2,
@@ -144,7 +144,7 @@ export default function FAQPage({ onNavigate, language }: FAQPageProps) {
       question: isHi ? "क्या इस ऐप को इंस्टॉल करने की आवश्यकता है?" : "Do I need to download a mobile app?",
       answer: isHi 
         ? "नहीं, यह एक पूरी तरह से उत्तरदायी वेब ऐप है जो मोबाइल और डेस्कटॉप दोनों पर आसानी से चलता है।" 
-        : "No, CivicLens AI is built as a fully responsive progressive-style web application that runs directly in any modern mobile or desktop browser without downloads."
+        : "No, CivicPulse AI is built as a fully responsive progressive-style web application that runs directly in any modern mobile or desktop browser without downloads."
     },
     {
       id: 15,
@@ -202,7 +202,7 @@ export default function FAQPage({ onNavigate, language }: FAQPageProps) {
                 {isHi ? "अक्सर पूछे जाने वाले प्रश्न" : "FAQ Knowledge Base"}
               </h1>
               <p className="text-xs text-slate-400">
-                {isHi ? "त्वरित समाधान और मंच की जानकारी प्राप्त करें।" : "Find quick answers and guides about the CivicLens platform."}
+                {isHi ? "त्वरित समाधान और मंच की जानकारी प्राप्त करें।" : "Find quick answers and guides about the CivicPulse platform."}
               </p>
             </div>
           </div>

@@ -77,7 +77,7 @@ export default function LandingPage({ issues, onNavigate, language }: LandingPag
         </h1>
 
         <p className="text-base sm:text-lg text-theme-secondary max-w-2xl mx-auto leading-relaxed mb-10">
-          Supercharge your neighborhood with CivicLens AI. Snap physical safety hazards, let Gemini instantly extract telemetry details, trigger democratic verifications, and hold local municipalities strictly accountable.
+          Supercharge your neighborhood with CivicPulse AI. Snap physical safety hazards, let Gemini instantly extract telemetry details, trigger democratic verifications, and hold local municipalities strictly accountable.
         </p>
 
         {/* Primary Call to Action buttons */}
@@ -128,7 +128,7 @@ export default function LandingPage({ issues, onNavigate, language }: LandingPag
       <section className="max-w-[1400px] mx-auto px-8 py-16">
         <div className="text-center mb-16">
           <h2 className="text-2xl sm:text-3.5xl font-extrabold text-theme-main tracking-tight mb-3">Modern Intelligent Issue Lifecycle</h2>
-          <p className="text-sm text-theme-secondary max-w-2xl mx-auto">Unlike traditional complaints channels, CivicLens AI wraps reports in geometric validations, preventing duplicates and establishing civic transparency.</p>
+          <p className="text-sm text-theme-secondary max-w-2xl mx-auto">Unlike traditional complaints channels, CivicPulse AI wraps reports in geometric validations, preventing duplicates and establishing civic transparency.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">

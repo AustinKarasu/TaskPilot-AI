@@ -12,7 +12,7 @@ import {
   GeminiVerificationSchema 
 } from "../lib/validations";
 
-describe("CivicLens Zod Schemas Validation", () => {
+describe("CivicPulse Zod Schemas Validation", () => {
   it("validates a correct User structure", () => {
     const validUser = {
       id: "usr-101",

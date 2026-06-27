@@ -20,7 +20,7 @@ export const CHATBOT_QA: QAEntry[] = [
   {
     id: 2,
     keywords: ["what is civiclens", "what is civic lens", "how does it help", "purpose", "concept", "mission", "goal", "platform", "civiclens", "civic lens"],
-    answer: "CivicLens AI is a hyperlocal infrastructure auditing and civic problem resolution platform.\n\nIt empowers citizens to report public hazards (such as potholes, broken streetlights, or waste accumulation) and collaborates with municipal authorities for verified resolution.\n\nKey capabilities include:\n1. Multimodal AI Analysis: Gemini AI automatically categorizes and estimates the priority of reported hazards.\n2. Peer Verification: Local residents confirm or dispute reports to build community consensus.\n3. Forensic Resolution Verification: AI compares 'Before' and 'After' photos to certify that repairs were successfully completed."
+    answer: "CivicPulse AI is a hyperlocal infrastructure auditing and civic problem resolution platform.\n\nIt empowers citizens to report public hazards (such as potholes, broken streetlights, or waste accumulation) and collaborates with municipal authorities for verified resolution.\n\nKey capabilities include:\n1. Multimodal AI Analysis: Gemini AI automatically categorizes and estimates the priority of reported hazards.\n2. Peer Verification: Local residents confirm or dispute reports to build community consensus.\n3. Forensic Resolution Verification: AI compares 'Before' and 'After' photos to certify that repairs were successfully completed."
   },
   {
     id: 3,
@@ -30,22 +30,22 @@ export const CHATBOT_QA: QAEntry[] = [
   {
     id: 4,
     keywords: ["is it free", "cost", "charge", "payment", "free of cost"],
-    answer: "Yes, CivicLens AI is completely free for citizens to use. It is designed as a public utility to improve neighborhood safety and governance."
+    answer: "Yes, CivicPulse AI is completely free for citizens to use. It is designed as a public utility to improve neighborhood safety and governance."
   },
   {
     id: 5,
     keywords: ["cities", "supported locations", "where does it work", "bengaluru", "kolkata"],
-    answer: "CivicLens AI currently supports major metropolitan layouts including Bengaluru (Bellandur, Indiranagar, Sarjapur) and Kolkata (Central, Bowbazar, Bidhannagar) for demo and production sensor feeds."
+    answer: "CivicPulse AI currently supports major metropolitan layouts including Bengaluru (Bellandur, Indiranagar, Sarjapur) and Kolkata (Central, Bowbazar, Bidhannagar) for demo and production sensor feeds."
   },
   {
     id: 6,
     keywords: ["who is it for", "target audience", "citizens", "authorities", "users"],
-    answer: "CivicLens AI is designed for three main user groups:\n1. Citizens: To report and audit local issues.\n2. Municipal Staff: To inspect and resolve dispatched tickets.\n3. Administrators: To manage announcements, user trust, and distribute rewards."
+    answer: "CivicPulse AI is designed for three main user groups:\n1. Citizens: To report and audit local issues.\n2. Municipal Staff: To inspect and resolve dispatched tickets.\n3. Administrators: To manage announcements, user trust, and distribute rewards."
   },
   {
     id: 7,
     keywords: ["mobile app", "android", "ios", "play store", "app store"],
-    answer: "CivicLens AI is built as a fully responsive Web App using modern HTML5, CSS3, and React. It runs seamlessly on all mobile, tablet, and desktop browsers without requiring a separate app store download."
+    answer: "CivicPulse AI is built as a fully responsive Web App using modern HTML5, CSS3, and React. It runs seamlessly on all mobile, tablet, and desktop browsers without requiring a separate app store download."
   },
   {
     id: 8,
@@ -55,7 +55,7 @@ export const CHATBOT_QA: QAEntry[] = [
   {
     id: 9,
     keywords: ["benefits", "why use it", "advantages", "value proposition"],
-    answer: "Using CivicLens AI increases public accountability, speeds up municipal resolution times (SLA tracking), prevents duplicate ticketing, and rewards citizen contribution with points and community badges."
+    answer: "Using CivicPulse AI increases public accountability, speeds up municipal resolution times (SLA tracking), prevents duplicate ticketing, and rewards citizen contribution with points and community badges."
   },
   {
     id: 10,
@@ -67,12 +67,12 @@ export const CHATBOT_QA: QAEntry[] = [
   {
     id: 11,
     keywords: ["theme", "dark mode", "design", "aesthetics", "glassmorphism", "look", "styling", "ui", "colors", "light mode"],
-    answer: "CivicLens AI features a premium dark glassmorphism styling layout, translucent cards, subtle glow states, and typography. The accent color system uses Cyan (technology/sensors), Indigo (infrastructure), and Emerald (resolutions)."
+    answer: "CivicPulse AI features a premium dark glassmorphism styling layout, translucent cards, subtle glow states, and typography. The accent color system uses Cyan (technology/sensors), Indigo (infrastructure), and Emerald (resolutions)."
   },
   {
     id: 12,
     keywords: ["cyan", "cyan color", "cyan gradient", "accent color cyan"],
-    answer: "Cyan represents active AI sensors, telemetry updates, and diagnostic features in CivicLens AI. It maps to the CSS color variable `--text-highlight` in dark mode."
+    answer: "Cyan represents active AI sensors, telemetry updates, and diagnostic features in CivicPulse AI. It maps to the CSS color variable `--text-highlight` in dark mode."
   },
   {
     id: 13,
@@ -87,7 +87,7 @@ export const CHATBOT_QA: QAEntry[] = [
   {
     id: 15,
     keywords: ["typography", "fonts", "inter", "space grotesk", "jetbrains mono"],
-    answer: "CivicLens AI uses Google Fonts:\n- Display headers: 'Space Grotesk' (futuristic geometric sans-serif)\n- UI body: 'Inter' (high-legibility neutral sans-serif)\n- Telemetry & Logs: 'JetBrains Mono' (highly readable monospaced font)"
+    answer: "CivicPulse AI uses Google Fonts:\n- Display headers: 'Space Grotesk' (futuristic geometric sans-serif)\n- UI body: 'Inter' (high-legibility neutral sans-serif)\n- Telemetry & Logs: 'JetBrains Mono' (highly readable monospaced font)"
   },
   {
     id: 16,
@@ -196,7 +196,7 @@ export const CHATBOT_QA: QAEntry[] = [
   {
     id: 36,
     keywords: ["how does gemini ai verify completed repairs", "visual forensics", "before after checks", "resolution proof", "verify repairs", "remedy proof", "forensic verification", "after photo"],
-    answer: "CivicLens AI employs Google's Gemini multimodal model to perform forensic visual verification of resolved issues:\n\n1. Image Comparison: When municipal crew members upload an 'After' photo, the AI analyzes it alongside the original 'Before' photo submitted by the citizen.\n2. Defect Inspection: The model checks for structural differences to confirm the issue (e.g., a pothole filled, a street light turned on, or garbage removed) has been resolved.\n3. Confidence Rating: Gemini returns a confidence percentage. If the rating is high, the ticket status changes to 'Resolved'. Otherwise, it is sent back for secondary inspection."
+    answer: "CivicPulse AI employs Google's Gemini multimodal model to perform forensic visual verification of resolved issues:\n\n1. Image Comparison: When municipal crew members upload an 'After' photo, the AI analyzes it alongside the original 'Before' photo submitted by the citizen.\n2. Defect Inspection: The model checks for structural differences to confirm the issue (e.g., a pothole filled, a street light turned on, or garbage removed) has been resolved.\n3. Confidence Rating: Gemini returns a confidence percentage. If the rating is high, the ticket status changes to 'Resolved'. Otherwise, it is sent back for secondary inspection."
   },
   {
     id: 37,
@@ -223,7 +223,7 @@ export const CHATBOT_QA: QAEntry[] = [
   {
     id: 41,
     keywords: ["how are reports validated by the community", "validated by the community", "what is consensus", "consensus system", "community consensus", "how are reports validated"],
-    answer: "CivicLens AI uses a decentralized community verification process to ensure report integrity and prevent fake submissions:\n\n1. Nearby Alerts: When a new issue is filed, local residents receive notification alerts on their map dashboard.\n2. Verification Votes: Neighbors can visit the spot to 'Confirm' (agree it exists) or 'Dispute' (assert it is resolved, duplicate, or inaccurate).\n3. Auto-Escalation: Once a report receives 5 or more confirmation votes, the system automatically escalates its status to 'Verified', which raises its municipal routing priority.\n4. Trust Integration: Confirmed reports increase the reporter's trust rating, while disputed reports lower it."
+    answer: "CivicPulse AI uses a decentralized community verification process to ensure report integrity and prevent fake submissions:\n\n1. Nearby Alerts: When a new issue is filed, local residents receive notification alerts on their map dashboard.\n2. Verification Votes: Neighbors can visit the spot to 'Confirm' (agree it exists) or 'Dispute' (assert it is resolved, duplicate, or inaccurate).\n3. Auto-Escalation: Once a report receives 5 or more confirmation votes, the system automatically escalates its status to 'Verified', which raises its municipal routing priority.\n4. Trust Integration: Confirmed reports increase the reporter's trust rating, while disputed reports lower it."
   },
   {
     id: 42,
@@ -275,7 +275,7 @@ export const CHATBOT_QA: QAEntry[] = [
   {
     id: 51,
     keywords: ["how to earn points", "points system", "civic points", "getting points", "how do i earn points & claim rewards", "earn points & claim rewards", "rewards system"],
-    answer: "CivicLens AI features a Civic Gamification Framework to incentivize active citizenship:\n\n1. Earning Points:\n   - Submit a Report: +25 Civic Points (granted upon successful validation).\n   - Verify/Peer Audit: +10 Civic Points (credited once the issue is officially resolved).\n   - Streak Multiplier: Reporting issues on consecutive days triggers a bonus of (streak_days * 15) points.\n\n2. Redeeming Rewards:\n   - Accumulate points and visit the 'Profile' dashboard.\n   - Choose from municipal benefits like free transit passes, public parking vouchers, or property tax discounts.\n   - Claiming a reward generates a unique digital voucher to present to local municipal vendors."
+    answer: "CivicPulse AI features a Civic Gamification Framework to incentivize active citizenship:\n\n1. Earning Points:\n   - Submit a Report: +25 Civic Points (granted upon successful validation).\n   - Verify/Peer Audit: +10 Civic Points (credited once the issue is officially resolved).\n   - Streak Multiplier: Reporting issues on consecutive days triggers a bonus of (streak_days * 15) points.\n\n2. Redeeming Rewards:\n   - Accumulate points and visit the 'Profile' dashboard.\n   - Choose from municipal benefits like free transit passes, public parking vouchers, or property tax discounts.\n   - Claiming a reward generates a unique digital voucher to present to local municipal vendors."
   },
   {
     id: 52,
@@ -540,7 +540,7 @@ export const CHATBOT_QA: QAEntry[] = [
   {
     id: 102,
     keywords: ["how to login", "sign in credentials", "demo accounts"],
-    answer: "Use these demo credentials:\n- Citizen: citizen@civiclens.demo / Citizen@2026\n- Admin: admin@civiclens.demo / CivicLens@2026\n- Staff: staff@civiclens.demo / Staff@2026"
+    answer: "Use these demo credentials:\n- Citizen: citizen@civiclens.demo / Citizen@2026\n- Admin: admin@civiclens.demo / CivicPulse@2026\n- Staff: staff@civiclens.demo / Staff@2026"
   },
   {
     id: 103,
@@ -555,7 +555,7 @@ export const CHATBOT_QA: QAEntry[] = [
   {
     id: 105,
     keywords: ["how is my privacy and location protected", "privacy and location protected", "coordinate obfuscation", "privacy mode", "isapproximate map", "location protected", "privacy safeguards"],
-    answer: "CivicLens AI prioritizes user privacy and data security through several built-in mechanisms:\n\n1. Location Obfuscation: When filing a report, you can enable 'Approximate Location'. This applies a random geographic offset to the coordinates on the public map, hiding your exact address while retaining general municipal mapping visibility.\n2. Identity Safeguards: Public dashboards and notifications display only your display name, hiding critical contact details like email addresses or phone numbers.\n3. Cryptographic Session Management: All user logins are protected by secure session tokens (and optional two-factor authentication) to safeguard your profile and accumulated points."
+    answer: "CivicPulse AI prioritizes user privacy and data security through several built-in mechanisms:\n\n1. Location Obfuscation: When filing a report, you can enable 'Approximate Location'. This applies a random geographic offset to the coordinates on the public map, hiding your exact address while retaining general municipal mapping visibility.\n2. Identity Safeguards: Public dashboards and notifications display only your display name, hiding critical contact details like email addresses or phone numbers.\n3. Cryptographic Session Management: All user logins are protected by secure session tokens (and optional two-factor authentication) to safeguard your profile and accumulated points."
   },
 
   // 13. ADDITIONAL QUESTIONS TO REACH 105+
@@ -567,7 +567,7 @@ export const CHATBOT_QA: QAEntry[] = [
   {
     id: 107,
     keywords: ["what categories are there", "issue types", "reporting categories"],
-    answer: "CivicLens AI supports 5 primary categories:\n1. Roads & Traffic\n2. Water & Sanitation\n3. Public Utilities\n4. Solid Waste Management\n5. Environment & Safety"
+    answer: "CivicPulse AI supports 5 primary categories:\n1. Roads & Traffic\n2. Water & Sanitation\n3. Public Utilities\n4. Solid Waste Management\n5. Environment & Safety"
   },
   {
     id: 108,

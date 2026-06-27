@@ -13,10 +13,10 @@ interface TermsPageProps {
 
 export default function TermsPage({ onNavigate, language }: TermsPageProps) {
   useEffect(() => {
-    document.title = language === "hi" ? "नियम और शर्तें | CivicLens" : "Terms and Conditions | CivicLens AI";
+    document.title = language === "hi" ? "नियम और शर्तें | CivicPulse" : "Terms and Conditions | CivicPulse AI";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Terms and Conditions for CivicLens AI hyperlocal auditing and points system.");
+      metaDesc.setAttribute("content", "Terms and Conditions for CivicPulse AI hyperlocal auditing and points system.");
     }
   }, [language]);
 
@@ -73,7 +73,7 @@ export default function TermsPage({ onNavigate, language }: TermsPageProps) {
             <p>
               {isHi
                 ? "सिविक लेंस एआई एक सार्वजनिक उपयोगिता मंच है। उपयोगकर्ताओं को केवल वास्तविक और सटीक बुनियादी ढांचा समस्याओं (जैसे गड्ढे, पानी का रिसाव, कचरा ढेर) की रिपोर्ट करनी चाहिए। फर्जी या दुर्भावनापूर्ण रिपोर्ट दर्ज करने पर खाता निलंबित किया जा सकता है।"
-                : "CivicLens AI is designed as a public utility to report neighborhood infrastructure problems. Users must only submit valid, accurate issues. Fabricating reports or submitting malicious information will lead to immediate account suspension."}
+                : "CivicPulse AI is designed as a public utility to report neighborhood infrastructure problems. Users must only submit valid, accurate issues. Fabricating reports or submitting malicious information will lead to immediate account suspension."}
             </p>
           </section>
 
@@ -97,14 +97,14 @@ export default function TermsPage({ onNavigate, language }: TermsPageProps) {
             <p>
               {isHi
                 ? "हम प्लेटफॉर्म के माध्यम से किसी भी भौतिक जोखिम को कम करने का प्रयास करते हैं, लेकिन सड़क और अन्य बुनियादी खतरों पर स्वयं नागरिकों की सतर्कता आवश्यक है। सिविक लेंस एआई किसी भी भौतिक क्षति या चोट के लिए जिम्मेदार नहीं होगा।"
-                : "CivicLens AI functions as a crowdsourced ledger and dispatcher. While we provide safety recommendations based on AI hazard scanning, we assume no direct liability for physical damage, scooter crashes, or injuries occurring near reported public hazard sites."}
+                : "CivicPulse AI functions as a crowdsourced ledger and dispatcher. While we provide safety recommendations based on AI hazard scanning, we assume no direct liability for physical damage, scooter crashes, or injuries occurring near reported public hazard sites."}
             </p>
           </section>
 
           <section className="border-t border-cyan-500/20 pt-6">
             <h2 className="text-white font-bold text-sm mb-2">{isHi ? "सहयोग और नियमों की पुष्टि के लिए धन्यवाद" : "Thank you for supporting community accountability."}</h2>
             <p className="font-mono text-xs text-slate-400">
-              {isHi ? "सिविक लेंस एआई टीम, बेंगलुरु विभाग।" : "CivicLens AI Board, Municipal Works Division."}
+              {isHi ? "सिविक लेंस एआई टीम, बेंगलुरु विभाग।" : "CivicPulse AI Board, Municipal Works Division."}
             </p>
           </section>
         </div>

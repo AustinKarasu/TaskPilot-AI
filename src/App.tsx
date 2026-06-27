@@ -404,6 +404,10 @@ export default function App() {
             />
           } />
 
+          <Route path="/map" element={<Navigate to="/explore" replace />} />
+          <Route path="/dashboard" element={<Navigate to="/app" replace />} />
+          <Route path="/report" element={<Navigate to="/app/report" replace />} />
+
           <Route path="/impact" element={
             <ImpactPage
               language={language}
@@ -506,7 +510,7 @@ export default function App() {
                 <div className="text-6xl mb-4">⛔</div>
                 <h2 className="text-xl font-extrabold text-theme-main mb-2">Access Denied</h2>
                 <p className="text-xs text-theme-muted mb-6 font-mono">
-                  You do not have the required permissions to access this section of CivicLens AI.
+                  You do not have the required permissions to access this section of CivicPulse AI.
                 </p>
                 <button
                   onClick={() => handleNavigate("landing")}
@@ -597,16 +601,16 @@ export default function App() {
               <div className="relative w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 via-[#21D4FD] to-indigo-600 p-0.5 flex items-center justify-center shadow-md overflow-hidden">
                 <img 
                   src="/favicon.png" 
-                  alt="CivicLens Logo" 
+                  alt="CivicPulse Logo" 
                   className="w-full h-full object-cover rounded-md"
                 />
               </div>
               <span className="font-extrabold text-white tracking-widest text-sm font-display">CIVICLENS AI</span>
             <p className="text-slate-400 leading-relaxed text-xs">
-              CivicLens AI is a hyperlocal infrastructure auditing and problem resolution platform, empowering citizens to audit, verify, and resolve neighborhood hazards in real-time.
+              CivicPulse AI is a hyperlocal infrastructure auditing and problem resolution platform, empowering citizens to audit, verify, and resolve neighborhood hazards in real-time.
             </p>
             <div className="flex flex-wrap gap-3 text-slate-500">
-              <a href="mailto:aayankarasu@gmail.com" className="hover:text-cyan-400 transition-colors" aria-label="Email CivicLens">Email</a>
+              <a href="mailto:aayankarasu@gmail.com" className="hover:text-cyan-400 transition-colors" aria-label="Email CivicPulse">Email</a>
               <a href="https://wa.me/918091726602" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors" aria-label="Open WhatsApp contact">WhatsApp</a>
               <button type="button" onClick={() => handleNavigate("privacy")} className="hover:text-cyan-400 transition-colors cursor-pointer" aria-label="Open privacy policy">Privacy</button>
               <button type="button" onClick={() => handleNavigate("credits")} className="hover:text-cyan-400 transition-colors cursor-pointer" aria-label="Open credits">Credits</button>

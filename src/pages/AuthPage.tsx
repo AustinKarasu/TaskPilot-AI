@@ -716,7 +716,7 @@ export default function AuthPage({ onAuthSuccess, onNavigate, language }: AuthPa
             <ShieldCheck className="w-6 h-6 text-white" />
           </div>
           <h2 className="text-2xl font-display font-black tracking-tight text-theme-main text-center">
-            {isRegister ? "Join CivicLens AI" : "Access Security Desk"}
+            {isRegister ? "Join CivicPulse AI" : "Access Security Desk"}
           </h2>
           <p className="text-xs text-theme-secondary mt-2 leading-relaxed max-w-[340px] mx-auto text-center">
             {isRegister 
@@ -952,7 +952,7 @@ export default function AuthPage({ onAuthSuccess, onNavigate, language }: AuthPa
 
             <div className="space-y-2">
               <button
-                onClick={() => handleQuickLogin("admin@civiclens.demo", "CivicLens@2026")}
+                onClick={() => handleQuickLogin("admin@civiclens.demo", "CivicPulse@2026")}
                 className="w-full p-2.5 rounded-2xl bg-gradient-to-r from-slate-900/40 to-slate-800/20 border border-theme-main hover:border-indigo-500/50 transition-all text-left text-xs flex items-center justify-between group cursor-pointer shadow-sm hover:translate-x-0.5"
               >
                 <div>
@@ -960,7 +960,7 @@ export default function AuthPage({ onAuthSuccess, onNavigate, language }: AuthPa
                     <span className="w-2 h-2 rounded-full bg-indigo-500"></span>
                     <span>Demo Admin: Admin Rajesh (Demo)</span>
                   </div>
-                  <div className="text-[10px] text-theme-muted font-mono mt-0.5">admin@civiclens.demo / CivicLens@2026</div>
+                  <div className="text-[10px] text-theme-muted font-mono mt-0.5">admin@civiclens.demo / CivicPulse@2026</div>
                 </div>
                 <ChevronRightIcon />
               </button>

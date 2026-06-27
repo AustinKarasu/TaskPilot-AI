@@ -172,7 +172,7 @@ export const RepositoryProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       "div",
       { className: "min-h-screen bg-slate-950 text-cyan-400 flex flex-col items-center justify-center font-mono text-xs gap-3" },
       React.createElement("div", { className: "w-8 h-8 border-2 border-cyan-500/20 border-t-cyan-500 rounded-full animate-spin" }),
-      React.createElement("span", null, "Initializing CivicLens Repository...")
+      React.createElement("span", null, "Initializing CivicPulse Repository...")
     );
   }
 

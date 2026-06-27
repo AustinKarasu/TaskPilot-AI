@@ -36,10 +36,10 @@ interface DependencyCredit {
 
 export default function CreditsPage({ onNavigate, language }: CreditsPageProps) {
   useEffect(() => {
-    document.title = language === "hi" ? "ओपन सोर्स क्रेडिट | CivicLens" : "Open Source Credits | CivicLens AI";
+    document.title = language === "hi" ? "ओपन सोर्स क्रेडिट | CivicPulse" : "Open Source Credits | CivicPulse AI";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Credits and acknowledgments for the open source software powering CivicLens AI.");
+      metaDesc.setAttribute("content", "Credits and acknowledgments for the open source software powering CivicPulse AI.");
     }
   }, [language]);
 
@@ -170,7 +170,7 @@ export default function CreditsPage({ onNavigate, language }: CreditsPageProps) 
           <p className="text-slate-300 text-sm leading-relaxed">
             {isHi
               ? "सिविक लेंस एआई दुनिया के बेहतरीन ओपन-सोर्स सॉफ्टवेयर रिपॉजिटरी और समुदायों के कंधों पर खड़ा है। ये विश्वसनीय पुस्तकालय हमें वास्तविक समय मानचित्रण, कृत्रिम बुद्धिमत्ता, और सुरक्षित संचार बुनियादी ढांचा प्रदान करने में सक्षम बनाते हैं। हम उनके योगदानकर्ताओं को धन्यवाद देते हैं।"
-              : "CivicLens AI is built upon the foundational work of the global open source community. By utilizing industry-standard, robust libraries, we ensure maximum reliability, security, and rendering performance for critical municipal operations. Below are the core open-source repositories integrated into our architecture."}
+              : "CivicPulse AI is built upon the foundational work of the global open source community. By utilizing industry-standard, robust libraries, we ensure maximum reliability, security, and rendering performance for critical municipal operations. Below are the core open-source repositories integrated into our architecture."}
           </p>
         </div>
 

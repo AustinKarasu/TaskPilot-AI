@@ -221,7 +221,7 @@ function initializeStorage() {
   let credsChanged = false;
   const initialCredMap: Record<string, {password: string, userId: string}> = {
     "citizen@civiclens.demo": { password: "Citizen@2026", userId: "demo_citizen_user" },
-    "admin@civiclens.demo": { password: "CivicLens@2026", userId: "demo_admin_user" },
+    "admin@civiclens.demo": { password: "CivicPulse@2026", userId: "demo_admin_user" },
     "staff@civiclens.demo": { password: "Staff@2026", userId: "demo_staff_user" }
   };
   for (const [em, val] of Object.entries(initialCredMap)) {
@@ -264,7 +264,7 @@ function initializeStorage() {
         previousStatus: IssueStatus.NEW,
         newStatus: IssueStatus.VERIFIED,
         updatedBy: "system",
-        updatedByName: "CivicLens AI",
+        updatedByName: "CivicPulse AI",
         publicMessage: "Issue automatically escalated to verified status following confirmation from 10+ local citizens.",
         createdAt: "2026-06-16T10:00:00Z"
       },
@@ -349,7 +349,7 @@ function initializeStorage() {
       {
         id: "ann_2",
         title: "Monsoon Preparedness Drainage Cleaning Drive",
-        content: "The BWSSB sanitary division has initiated high-pressure desilting and clearing of primary storm water drains cross-connecting sector lakes. Citizens can report blocked grates directly on CivicLens to direct crews.",
+        content: "The BWSSB sanitary division has initiated high-pressure desilting and clearing of primary storm water drains cross-connecting sector lakes. Citizens can report blocked grates directly on CivicPulse to direct crews.",
         createdAt: "2026-06-21T10:30:00Z",
         category: "info",
         department: "Water & Sewerage (BWSSB)",
@@ -587,7 +587,7 @@ export const dbService = {
             previousStatus: IssueStatus.NEW,
             newStatus: IssueStatus.VERIFIED,
             updatedBy: "system",
-            updatedByName: "CivicLens AI System",
+            updatedByName: "CivicPulse AI System",
             publicMessage: "Issue automatically escalated to Verified status following continuous community confirmations.",
             createdAt: new Date().toISOString()
           });
@@ -714,7 +714,7 @@ export const dbService = {
           previousStatus: IssueStatus.NEW,
           newStatus: IssueStatus.VERIFIED,
           updatedBy: "system",
-          updatedByName: "CivicLens AI",
+          updatedByName: "CivicPulse AI",
           publicMessage: "Incident verified. Automated priority weight increased based on nearby citizen confirmations.",
           createdAt: new Date(baseTime + 1800000).toISOString() // +30 mins
         });

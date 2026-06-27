@@ -190,7 +190,7 @@ export default function Navbar({
           <div className="relative w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 via-[#21D4FD] to-indigo-600 p-0.5 flex items-center justify-center shadow-md group-hover:scale-105 transition-all overflow-hidden">
             <img 
               src="/favicon.png" 
-              alt="CivicLens Logo" 
+              alt="CivicPulse Logo" 
               className="w-full h-full object-cover rounded-lg z-10"
               onError={(e) => {
                 e.currentTarget.style.display = "none";
@@ -204,7 +204,7 @@ export default function Navbar({
           </div>
           <div>
             <div className="flex items-baseline gap-1">
-              <span className="font-sans font-extrabold text-lg sm:text-xl tracking-tight text-theme-main">CivicLens</span>
+              <span className="font-sans font-extrabold text-lg sm:text-xl tracking-tight text-theme-main">CivicPulse</span>
               <span className="text-xs font-mono font-extrabold text-cyan-600 dark:text-[#21D4FD]">AI</span>
             </div>
             <p className="text-[9px] text-theme-muted tracking-widest font-mono uppercase leading-none mt-0.5 hidden sm:block">
@@ -372,7 +372,7 @@ export default function Navbar({
                   <img src="/favicon.png" alt="Logo" className="w-full h-full object-cover rounded-md" />
                 </div>
                 <div>
-                  <span className="font-sans font-extrabold text-base tracking-tight text-theme-main">CivicLens</span>
+                  <span className="font-sans font-extrabold text-base tracking-tight text-theme-main">CivicPulse</span>
                   <span className="text-xs font-mono font-extrabold text-cyan-600 dark:text-[#21D4FD]">AI</span>
                 </div>
               </div>
@@ -687,7 +687,7 @@ export default function Navbar({
             </h3>
             
             <p className="text-xs text-[#9FB2C8] leading-relaxed mb-6 font-mono">
-              Are you sure you want to terminate your secure CivicLens AI digital clearance session? Any temporary active drafts could be cleared from local cache.
+              Are you sure you want to terminate your secure CivicPulse AI digital clearance session? Any temporary active drafts could be cleared from local cache.
             </p>
 
             <div className="grid grid-cols-2 gap-3 font-mono">

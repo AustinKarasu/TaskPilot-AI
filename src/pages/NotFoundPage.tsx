@@ -13,7 +13,7 @@ interface NotFoundPageProps {
 
 export default function NotFoundPage({ onNavigate, language }: NotFoundPageProps) {
   useEffect(() => {
-    document.title = language === "hi" ? "पृष्ठ नहीं मिला | CivicLens" : "404 Page Not Found | CivicLens AI";
+    document.title = language === "hi" ? "पृष्ठ नहीं मिला | CivicPulse" : "404 Page Not Found | CivicPulse AI";
   }, [language]);
 
   const isHi = language === "hi";
@@ -37,7 +37,7 @@ export default function NotFoundPage({ onNavigate, language }: NotFoundPageProps
           </h1>
           <p className="text-xs text-slate-400 font-mono leading-relaxed">
             {isHi 
-              ? "क्षमा करें, आपके द्वारा खोजा गया पृष्ठ CivicLens AI डेटाबेस में मौजूद नहीं है या हटा दिया गया है।" 
+              ? "क्षमा करें, आपके द्वारा खोजा गया पृष्ठ CivicPulse AI डेटाबेस में मौजूद नहीं है या हटा दिया गया है।" 
               : "The requested route does not exist or has been archived outside the active municipal audit grid."}
           </p>
         </div>

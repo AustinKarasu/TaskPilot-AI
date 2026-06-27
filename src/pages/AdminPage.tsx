@@ -443,7 +443,7 @@ export default function AdminPage({ currentUser, onNavigate, language }: AdminPa
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.setAttribute("href", url);
-    link.setAttribute("download", `CivicLens_Incident_Ledger_${new Date().toISOString().split("T")[0]}.csv`);
+    link.setAttribute("download", `CivicPulse_Incident_Ledger_${new Date().toISOString().split("T")[0]}.csv`);
     link.style.visibility = "hidden";
     document.body.appendChild(link);
     link.click();
@@ -517,7 +517,7 @@ export default function AdminPage({ currentUser, onNavigate, language }: AdminPa
       previousStatus: IssueStatus.NEW,
       newStatus: IssueStatus.NEW,
       updatedBy: "system",
-      updatedByName: "CivicLens AI",
+      updatedByName: "CivicPulse AI",
       publicMessage: "Emergency alert triggered by sensor network. Dispatched automatic telemetry alerts to BWSSB and PWD units.",
       createdAt: new Date().toISOString()
     });
@@ -562,7 +562,7 @@ export default function AdminPage({ currentUser, onNavigate, language }: AdminPa
       previousStatus: IssueStatus.NEW,
       newStatus: IssueStatus.NEW,
       updatedBy: "system",
-      updatedByName: "CivicLens AI",
+      updatedByName: "CivicPulse AI",
       publicMessage: "Emergency alert triggered by sensor network. Dispatched priority alarms to BESCOM distribution safety line.",
       createdAt: new Date().toISOString()
     });
