@@ -1,6 +1,6 @@
 import { GeminiAnalysisSchema, GeminiVerificationSchema } from "./validations";
 
-const GEMINI_MODEL = "gemini-2.5-flash";
+const GEMINI_MODEL = "gemini-flash-latest";
 
 function getGeminiApiKey(): string {
   const key = import.meta.env.VITE_GEMINI_API_KEY;
@@ -37,9 +37,12 @@ async function imageToInlineData(image: string): Promise<{ mimeType: string; dat
 
 async function generateJson<T>(parts: any[], schema: any, signal?: AbortSignal): Promise<T> {
   const apiKey = getGeminiApiKey();
-  const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${encodeURIComponent(apiKey)}`, {
+  const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      "X-goog-api-key": apiKey
+    },
     signal,
     body: JSON.stringify({
       contents: [{ role: "user", parts }],
@@ -66,9 +69,12 @@ async function generateJson<T>(parts: any[], schema: any, signal?: AbortSignal):
 
 async function generateText(parts: any[], signal?: AbortSignal): Promise<string> {
   const apiKey = getGeminiApiKey();
-  const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${encodeURIComponent(apiKey)}`, {
+  const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      "X-goog-api-key": apiKey
+    },
     signal,
     body: JSON.stringify({
       contents: [{ role: "user", parts }],
