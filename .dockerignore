@@ -1,0 +1,12 @@
+node_modules
+dist
+.git
+.codex-run
+.idx
+.env
+.env.*
+!.env.example
+npm-debug.log
+coverage
+*.local
+*.log
