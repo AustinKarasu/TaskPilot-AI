@@ -111,12 +111,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             // Subscribe to Firebase auth observer
             onAuthStateChanged(auth, async (firebaseUser) => {
               if (firebaseUser) {
+                applyAuthenticatedUser(buildFirebaseUserProfile(firebaseUser));
                 try {
                   // Resolve user details from database repository
                   const userProfile = await repository.getUser(firebaseUser.uid);
                   if (userProfile) {
-                    setUser(userProfile);
-                    setStatus("authenticated");
+                    applyAuthenticatedUser(userProfile);
                     // Sync the current user ID to local storage for standard integrations
                     localStorage.setItem("civiclens_current_user_id", firebaseUser.uid);
                     localStorage.setItem("civiclens_is_signed_in", "true");

@@ -169,11 +169,11 @@ export default function Navbar({
     setMobileMenuOpen(false);
   };
 
-  const clearAuthForModeSwitch = () => {
-    localStorage.setItem("civiclens_is_signed_in", "false");
-    localStorage.setItem("civiclens_demo_is_signed_in", "false");
-    localStorage.removeItem("civiclens_current_user_id");
-    localStorage.removeItem("civiclens_demo_current_user_id");
+  const switchPlatformMode = (targetMode: "true" | "false") => {
+    localStorage.setItem("civiclens_demo_mode", targetMode);
+    const url = new URL(window.location.href);
+    url.searchParams.set("demo", targetMode);
+    window.location.href = url.toString();
   };
 
   return (
@@ -219,11 +219,7 @@ export default function Navbar({
           <button
             onClick={() => {
               const targetMode = auth.mode === "demo" ? "false" : "true";
-              clearAuthForModeSwitch();
-              localStorage.setItem("civiclens_demo_mode", targetMode);
-              const url = new URL(window.location.href);
-              url.searchParams.set("demo", targetMode);
-              window.location.href = url.toString();
+              switchPlatformMode(targetMode);
             }}
             className={`px-2.5 py-1.5 rounded-xl border transition-all text-[10px] font-mono font-bold flex items-center gap-1.5 cursor-pointer h-[34px] ${
               auth.mode === "demo"
@@ -557,11 +553,7 @@ export default function Navbar({
                   <button
                     onClick={() => {
                       if (auth.mode !== "firebase") {
-                        clearAuthForModeSwitch();
-                        localStorage.setItem("civiclens_demo_mode", "false");
-                        const url = new URL(window.location.href);
-                        url.searchParams.set("demo", "false");
-                        window.location.href = url.toString();
+                        switchPlatformMode("false");
                       }
                     }}
                     className={`py-1.5 px-2 rounded-xl border text-center transition font-mono font-bold text-[10px] cursor-pointer ${
@@ -575,11 +567,7 @@ export default function Navbar({
                   <button
                     onClick={() => {
                       if (auth.mode !== "demo") {
-                        clearAuthForModeSwitch();
-                        localStorage.setItem("civiclens_demo_mode", "true");
-                        const url = new URL(window.location.href);
-                        url.searchParams.set("demo", "true");
-                        window.location.href = url.toString();
+                        switchPlatformMode("true");
                       }
                     }}
                     className={`py-1.5 px-2 rounded-xl border text-center transition font-mono font-bold text-[10px] cursor-pointer ${
@@ -716,4 +704,3 @@ export default function Navbar({
     </>
   );
 }
-
