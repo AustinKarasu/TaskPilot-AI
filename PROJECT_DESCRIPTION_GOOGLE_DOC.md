@@ -4,7 +4,7 @@ Google Doc sharing note: After pasting this into Google Docs, set access to "Any
 
 GitHub Repository Link: https://github.com/AustinKarasu/CivicPulse
 
-Deployed Application Link: [Paste deployed Google Cloud application link here]
+Deployed Application Link: https://gen-lang-client-0000039141.web.app
 
 ---
 
