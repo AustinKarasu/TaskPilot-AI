@@ -1,76 +1,167 @@
-# CivicPulse AI — Submission
+# CivicPulse AI Submission
 
 ## Project Name
-**CivicPulse AI** — Community issues. Visible action.
 
-## Problem Statement
-**Community Hero — Hyperlocal Problem Solver**
+**CivicPulse AI**  
+AI-powered civic reporting, verification, and municipal accountability.
 
-Citizens encounter civic infrastructure problems daily — potholes, broken streetlights, water leaks, garbage dumping — but lack an effective channel to report, track, and ensure resolution of these issues. Municipal authorities need structured data to prioritize work orders, and communities need transparency to hold them accountable.
+## One-Line Pitch
+
+CivicPulse AI turns neighborhood problems into AI-classified, community-verified, publicly trackable civic action.
+
+## Problem
+
+Cities receive thousands of complaints about potholes, broken lights, garbage dumping, drainage failures, unsafe manholes, and other hazards. The existing complaint process is often slow, fragmented, and difficult to trust.
+
+Key pain points:
+
+- Citizens do not know where to report or who owns the issue.
+- Municipal staff receive vague, duplicate, or low-quality complaints.
+- Urgent hazards are not always prioritized quickly.
+- Communities cannot easily verify whether a fix actually happened.
+- Good civic participation is invisible and unrewarded.
 
 ## Solution
 
-CivicPulse AI is a civic technology platform that enables citizens to:
+CivicPulse AI creates a complete civic action loop:
 
-1. **Report** issues by capturing photo/video evidence
-2. **Analyze** with Gemini AI for automatic categorization, severity assessment, and department routing
-3. **Verify** through community consensus — nearby citizens validate reports
-4. **Track** issues through a transparent lifecycle with audit trails
-5. **Resolve** with AI-verified before/after photo comparison to prevent false claims
+```mermaid
+flowchart LR
+    A[Report] --> B[AI Analyze]
+    B --> C[Community Verify]
+    C --> D[Prioritize]
+    D --> E[Assign]
+    E --> F[Resolve]
+    F --> G[AI Verify Fix]
+    G --> H[Public Trust and Rewards]
+```
 
-## Google AI Technologies Used
+Citizens upload photo evidence and location data. Gemini AI analyzes the image, classifies the issue, estimates severity, suggests the responsible department, and returns structured data. Nearby residents can confirm or dispute the report. Staff can manage the issue through a transparent workflow. When a fix is claimed, before and after photos can be checked to help verify the resolution.
 
-### Gemini AI (Core Integration)
-- **Multimodal Image Analysis** (`/api/gemini/analyze`): Citizens submit photos, Gemini analyzes the infrastructure defect, generates structured JSON with category, severity, public risk, department suggestion, safety advice, and recommended actions
-- **Resolution Verification** (`/api/gemini/verify-resolution`): Before/after photo comparison to verify that reported issues have actually been fixed, preventing false resolution claims
-- **Structured Output**: Both endpoints use Gemini's `responseSchema` feature for reliable JSON structured output
-- **Model**: `gemini-2.5-flash` with retry logic and exponential backoff
+## What Makes It Strong
 
-### Google Maps Platform
-- Interactive community map with issue markers
-- Geocoding for address resolution
-- Places Autocomplete for search
+| Strength | Why It Matters |
+| --- | --- |
+| Multimodal Gemini AI | Converts raw photos into structured civic intelligence. |
+| Community verification | Adds local trust and reduces fake or duplicate reports. |
+| Transparent tracking | Citizens can see the lifecycle of each issue. |
+| Staff workflow | The product is useful for authorities, not only citizens. |
+| Resolution verification | Fixes are supported by evidence, not just status labels. |
+| Gamification | Rewards helpful civic participation. |
+| Security posture | Auth, validation, rules, rate limits, and tests are included. |
+| Demo completeness | Landing pages, map, dashboards, chatbot, tour, analytics, and role flows are built. |
 
-### Firebase
-- **Authentication**: Email/password + Google SSO
-- **Firestore**: Real-time database for issues, comments, users, notifications
-- **Storage**: Issue evidence photos and resolution evidence
+## Google AI Usage
+
+### Gemini Issue Analysis
+
+Endpoint: `/api/gemini/analyze`
+
+Gemini analyzes uploaded civic issue photos and returns structured JSON containing:
+
+- Issue category
+- Severity estimate
+- Public safety risk
+- Department recommendation
+- Suggested next actions
+- Citizen-facing safety guidance
+- Confidence and reasoning
+
+### Gemini Resolution Verification
+
+Endpoint: `/api/gemini/verify-resolution`
+
+Gemini compares original report evidence with after-repair evidence to help determine whether the issue appears fixed. This helps prevent false closure and strengthens public accountability.
+
+### Structured Output
+
+The backend validates AI output with schemas so the product can depend on predictable machine-readable responses instead of fragile text parsing.
 
 ## Architecture
 
-```
-┌─────────────┐     ┌──────────────┐     ┌──────────────┐
-│   React SPA  │────▶│  Express API │────▶│  Gemini AI   │
-│  (Vite/TS)  │     │  (server.ts) │     │  (Analysis)  │
-└──────┬──────┘     └──────┬───────┘     └──────────────┘
-       │                   │
-       ▼                   ▼
-┌──────────────┐   ┌──────────────┐
-│ Google Maps  │   │   Firebase   │
-│  Platform    │   │ Auth/DB/Stor │
-└──────────────┘   └──────────────┘
+```mermaid
+flowchart TB
+    Citizen[Citizen Browser] --> React[React + TypeScript App]
+    Staff[Staff/Admin Browser] --> React
+
+    React --> Express[Express Full-Stack API]
+    React --> Maps[Maps and Location UI]
+    React --> Firebase[Firebase Auth, Firestore, Storage]
+
+    Express --> Gemini[Gemini Multimodal AI]
+    Express --> Validation[Zod Validation and Rate Limits]
+    Express --> Email[Email Verification Service]
+
+    Firebase --> Rules[Firestore and Storage Rules]
 ```
 
 ## Demo Flow
 
-1. Open the landing page → See live impact metrics
-2. Click "Report an Issue" → Camera capture
-3. Photo analyzed by Gemini → Auto-categorized with AI reasoning
-4. Submit → Issue appears on community map
-5. Other citizens verify the report → Priority escalates
-6. Staff dashboard → Assign to department
-7. Staff uploads "after" photo → Gemini verifies resolution
-8. Issue marked resolved → Community notified
+1. Open the landing page and review the civic impact story.
+2. Start a report for a pothole, leak, garbage issue, streetlight problem, or manhole hazard.
+3. Upload evidence and location details.
+4. Gemini classifies the issue and explains its likely urgency.
+5. Submit the report and view it in the issue system.
+6. Explore map, dashboards, analytics, leaderboard, and issue detail pages.
+7. Use staff/admin flows to update status and add resolution proof.
+8. Run before/after verification to demonstrate the accountability loop.
 
-## How to Run
+## User Roles
+
+```mermaid
+mindmap
+  root((CivicPulse AI))
+    Citizens
+      Report hazards
+      Verify nearby issues
+      Track status
+      Earn points
+    Staff
+      Review queue
+      Assign work
+      Update status
+      Upload proof
+    Admins
+      Monitor system
+      Manage announcements
+      Audit activity
+      Review impact
+    AI
+      Analyze reports
+      Estimate severity
+      Suggest routing
+      Check resolution
+```
+
+## Technology
+
+- React 19, TypeScript, Vite, Tailwind CSS
+- Node.js and Express
+- Google Gemini via `@google/genai`
+- Firebase Authentication, Firestore, and Storage
+- Google Maps and mapping-ready UI
+- Chart.js, Three.js, React Three Fiber, Framer Motion
+- Zod validation, DOMPurify sanitization, security headers
+- Vitest and Supertest coverage
+
+## Impact
+
+CivicPulse AI helps cities move from complaint collection to civic accountability. It can reduce duplicate complaints, improve department routing, surface urgent hazards faster, reward public participation, and make resolution claims easier to verify.
+
+The result is a project with both technical depth and social relevance: a polished product that demonstrates how AI can improve local governance in a way citizens can see and trust.
+
+## How To Run
 
 ```bash
 npm install
 cp .env.example .env
-# Add GEMINI_API_KEY to .env
 npm run dev
-# Open http://localhost:3000
 ```
 
-## Team
-Built with ❤️ for the community.
+Then open:
+
+```text
+http://localhost:3000
+```
+
+Add `GEMINI_API_KEY` in `.env` to enable AI-powered analysis and verification.

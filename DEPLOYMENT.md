@@ -1,6 +1,6 @@
-# Deployment Guide: CivicLens AI
+# Deployment Guide: CivicPulse AI
 
-This document provides configuration steps to compile, secure, and deploy CivicLens AI to a production environment.
+This document provides configuration steps to compile, secure, and deploy CivicPulse AI to a production environment.
 
 ## 1. Environment Preparation
 
@@ -42,16 +42,16 @@ The Express server sets Strict-Transport-Security (`HSTS`) headers automatically
 ```nginx
 server {
     listen 80;
-    server_name civiclens.yourcity.gov.in;
+    server_name civicpulse.yourcity.gov.in;
     return 301 https://$host$request_uri;
 }
 
 server {
     listen 443 ssl http2;
-    server_name civiclens.yourcity.gov.in;
+    server_name civicpulse.yourcity.gov.in;
 
-    ssl_certificate /etc/letsencrypt/live/civiclens/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/civiclens/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/civicpulse/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/civicpulse/privkey.pem;
 
     # Secure TLS configurations
     ssl_protocols TLSv1.2 TLSv1.3;
