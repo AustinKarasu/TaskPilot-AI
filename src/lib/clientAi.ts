@@ -67,7 +67,7 @@ async function generateJson<T>(parts: any[], schema: any, signal?: AbortSignal):
   return JSON.parse(text) as T;
 }
 
-async function generateText(parts: any[], signal?: AbortSignal): Promise<string> {
+async function generateText(parts: any[], signal?: AbortSignal, maxOutputTokens = 900): Promise<string> {
   const apiKey = getGeminiApiKey();
   const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`, {
     method: "POST",
@@ -80,7 +80,7 @@ async function generateText(parts: any[], signal?: AbortSignal): Promise<string>
       contents: [{ role: "user", parts }],
       generationConfig: {
         temperature: 0.25,
-        maxOutputTokens: 650
+        maxOutputTokens
       }
     })
   });
@@ -207,9 +207,11 @@ Rules:
 - Only answer questions about CivicPulse AI, its features, reporting flow, Gemini analysis, Google technologies, maps, verification, rewards, privacy, deployment, and developer details.
 - If the user asks unrelated questions, politely refuse and steer back to CivicPulse AI.
 - Keep answers concise and useful.
+- Always finish your final sentence. Prefer 3 to 6 short bullets or 2 short paragraphs over a long essay.
+- Do not claim validation is only AI-driven: CivicPulse AI combines Gemini analysis, evidence checks, status tracking, and community verification.
 
 Project facts:
-CivicPulse AI is an AI-powered civic reporting and accountability platform. Citizens report potholes, broken streetlights, water leaks, open manholes, garbage dumping, drainage issues, and safety hazards with evidence and location. Gemini analyzes evidence, estimates severity, suggests department routing, and can verify before/after resolution proof. The platform uses Firebase Authentication, Firestore, Storage, Firebase Hosting, Google Maps, Gemini API, React, TypeScript, Vite, Tailwind, Node, and Express.
+CivicPulse AI is an AI-powered civic reporting and accountability platform. Citizens report potholes, broken streetlights, water leaks, open manholes, garbage dumping, drainage issues, and safety hazards with evidence and location. Gemini analyzes evidence, estimates severity, suggests department routing, and can verify before/after resolution proof. Community verification adds public trust signals; it is not replaced by AI. The platform uses Firebase Authentication, Firestore, Storage, Firebase Hosting, Google Maps, Gemini API, React, TypeScript, Vite, Tailwind, Node, and Express.
 Developer: Aayan Parmar / Aayan Karasu. Portfolio: aayankarasu.fun. Email: aayankarasu@gmail.com.
 
 Conversation history:
@@ -218,5 +220,5 @@ ${historyText || "No previous messages."}
 User question:
 ${message}`
     }
-  ], signal);
+  ], signal, 1400);
 }
