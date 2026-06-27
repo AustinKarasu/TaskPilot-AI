@@ -2957,8 +2957,14 @@ apiRouter.post("/auth/send-verification", strictRateLimiter, validateBody(SendVe
   saveDatabase(db);
 
   try {
+    const smtpUser = process.env.SMTP_USER;
+    const smtpPass = process.env.SMTP_PASS;
+    if (!smtpUser || !smtpPass) {
+      return res.status(503).json({ error: "SMTP_USER and SMTP_PASS are required to send verification email." });
+    }
+
     const mailOptions = {
-      from: "CivicPulse <demo@civicpulse.gov.in>",
+      from: process.env.EMAIL_FROM || "CivicPulse <demo@civicpulse.gov.in>",
       to: email,
       subject: "Verify Your CivicPulse Account",
       text: `Hello ${name || "Citizen"},\n\nYour security verification code is: ${code}\n\nEnter this code to verify your email and complete your registration.\n\nBest,\nCivicPulse Team`,
@@ -2978,8 +2984,8 @@ apiRouter.post("/auth/send-verification", strictRateLimiter, validateBody(SendVe
       port: 465,
       secure: true,
       auth: {
-        user: process.env.SMTP_USER || "zevrylofficial@gmail.com",
-        pass: process.env.SMTP_PASS || "pwik rbcs zsxs cjwt"
+        user: smtpUser,
+        pass: smtpPass
       }
     });
     await transporter.sendMail(mailOptions);

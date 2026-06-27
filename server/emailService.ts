@@ -5,23 +5,30 @@
 
 import nodemailer from "nodemailer";
 
+const SMTP_USER = process.env.SMTP_USER;
+const SMTP_PASS = process.env.SMTP_PASS;
+const FROM_EMAIL = process.env.EMAIL_FROM || "CivicPulse <demo@civicpulse.gov.in>";
+const CONTACT_TO_EMAIL = process.env.CONTACT_TO_EMAIL || SMTP_USER;
+
+if (!SMTP_USER || !SMTP_PASS) {
+  console.warn("SMTP_USER and SMTP_PASS are not configured. Email delivery will fail until they are set.");
+}
+
 // Gmail SMTP configuration details
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
   secure: true, // SSL
   auth: {
-    user: process.env.SMTP_USER || "zevrylofficial@gmail.com",
-    pass: process.env.SMTP_PASS || "pwik rbcs zsxs cjwt"
+    user: SMTP_USER,
+    pass: SMTP_PASS
   }
 });
-
-const FROM_EMAIL = "CivicPulse <demo@civicpulse.gov.in>";
 
 export async function sendContactNotification(name: string, email: string, subject: string, message: string) {
   const mailOptions = {
     from: FROM_EMAIL,
-    to: "zevrylofficial@gmail.com",
+    to: CONTACT_TO_EMAIL,
     replyTo: email,
     subject: `[CivicPulse Contact Us] ${subject}`,
     text: `You have received a new message from the contact form.
@@ -253,4 +260,3 @@ export async function sendSupportTicketCreated(email: string, ticketId: string, 
 
   return transporter.sendMail(mailOptions);
 }
-
