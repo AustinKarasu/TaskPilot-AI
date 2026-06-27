@@ -8,6 +8,13 @@ export function getAppMode(): "demo" | "firebase" {
     ? import.meta.env.VITE_APP_MODE
     : undefined;
 
+  if (envMode === "demo") {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("civiclens_demo_mode", "true");
+    }
+    return "demo";
+  }
+
   if (typeof window !== "undefined") {
     const searchParams = new URLSearchParams(window.location.search);
     const demoParam = searchParams.get("demo");
@@ -27,7 +34,7 @@ export function getAppMode(): "demo" | "firebase" {
     }
   }
 
-  if (envMode === "demo" || envMode === "firebase") {
+  if (envMode === "firebase") {
     return envMode;
   }
   return "firebase";

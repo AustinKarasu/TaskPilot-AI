@@ -58,6 +58,15 @@ export const RepositoryProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   const [repo, setRepo] = React.useState<CivicRepository | null>(null);
 
   React.useEffect(() => {
+    let cancelled = false;
+    const setLocalDemoRepository = () => {
+      import("./LocalDemoRepository").then(({ LocalDemoRepository }) => {
+        if (!cancelled) {
+          setRepo(new LocalDemoRepository());
+        }
+      });
+    };
+
     const mode = getAppMode();
     if (mode === "firebase") {
       // Clear production local storage caches when entering firebase mode to prevent local demo data leak
@@ -71,9 +80,9 @@ export const RepositoryProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       localStorage.removeItem("civiclens_audit_logs");
 
       import("./FirebaseRepository").then(({ FirebaseRepository, ensureFirebaseInitialized, getFirestoreInstance }) => {
-        setRepo(new FirebaseRepository());
-        
         ensureFirebaseInitialized().then(() => {
+          if (cancelled) return;
+          setRepo(new FirebaseRepository());
           const db = getFirestoreInstance();
           if (db) {
             import("firebase/firestore").then(({ collection, onSnapshot }) => {
@@ -141,18 +150,21 @@ export const RepositoryProvider: React.FC<{ children: React.ReactNode }> = ({ ch
               });
             });
           }
+        }).catch(err => {
+          console.warn("FirebaseRepository unavailable, falling back to LocalDemoRepository:", err.message);
+          setLocalDemoRepository();
         });
       }).catch(err => {
         console.error("Failed to initialize FirebaseRepository, falling back to LocalDemoRepository:", err);
-        import("./LocalDemoRepository").then(({ LocalDemoRepository }) => {
-          setRepo(new LocalDemoRepository());
-        });
+        setLocalDemoRepository();
       });
     } else {
-      import("./LocalDemoRepository").then(({ LocalDemoRepository }) => {
-        setRepo(new LocalDemoRepository());
-      });
+      setLocalDemoRepository();
     }
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   if (!repo) {
@@ -170,4 +182,3 @@ export const RepositoryProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     children
   );
 };
-
