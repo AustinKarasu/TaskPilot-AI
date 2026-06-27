@@ -58,7 +58,7 @@ export default function CivicMap({
   const [isSearchingLoc, setIsSearchingLoc] = useState(false);
   const [locationStatus, setLocationStatus] = useState("");
   const [isLocating, setIsLocating] = useState(false);
-  const [currentLocationMarker, setCurrentLocationMarker] = useState<L.Marker | null>(null);
+  const currentLocationMarkerRef = useRef<L.Marker | null>(null);
 
   useEffect(() => {
     if (!locationStatus || isLocating) return;
@@ -190,8 +190,8 @@ export default function CivicMap({
 
     map.setView([latitude, longitude], zoom, { animate: true });
 
-    if (currentLocationMarker) {
-      map.removeLayer(currentLocationMarker);
+    if (currentLocationMarkerRef.current) {
+      map.removeLayer(currentLocationMarkerRef.current);
     }
 
     const pulseIcon = L.divIcon({
@@ -209,61 +209,73 @@ export default function CivicMap({
     const newMarker = L.marker([latitude, longitude], { icon: pulseIcon })
       .bindPopup(`Current location${accuracy ? `, accurate to about ${Math.round(accuracy)}m` : ""}`, { closeButton: false })
       .addTo(map);
-    setCurrentLocationMarker(newMarker);
+    currentLocationMarkerRef.current = newMarker;
     setLocationStatus(status);
   };
 
   const handleUseCurrentLocation = () => {
+    if (!window.isSecureContext) {
+      setLocationStatus("Live location requires HTTPS or localhost.");
+      alert("Live location requires HTTPS or localhost.");
+      return;
+    }
     if (!navigator.geolocation) {
       alert("Geolocation is not supported by your browser.");
       return;
     }
     setIsLocating(true);
-    setLocationStatus("Finding location...");
+    setLocationStatus("Requesting browser location permission...");
 
-    let finished = false;
-    let hasPosition = false;
-    let preciseAttemptDone = false;
-    const finish = () => {
-      finished = true;
+    let settled = false;
+    let fallbackStarted = false;
+    let hardTimeout: number | undefined;
+
+    const finish = (message?: string) => {
+      settled = true;
       setIsLocating(false);
+      if (message) setLocationStatus(message);
+      if (hardTimeout) window.clearTimeout(hardTimeout);
     };
 
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        hasPosition = true;
-        renderCurrentLocation(position, 15, "Fast location found. Refining GPS...");
-      },
-      () => undefined,
-      { enableHighAccuracy: false, timeout: 1200, maximumAge: 5 * 60 * 1000 }
-    );
+    const showGeoError = (error: GeolocationPositionError) => {
+      console.warn("Map geolocation failed:", error.message);
+      if (error.code === error.PERMISSION_DENIED) {
+        finish("Location permission denied. Enable site location access in your browser.");
+        return;
+      }
+      if (!fallbackStarted) {
+        fallbackStarted = true;
+        setLocationStatus("High accuracy timed out. Trying last known location...");
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            renderCurrentLocation(position, 14, "Approximate location loaded from browser cache.");
+            finish();
+          },
+          (fallbackError) => {
+            console.warn("Fallback geolocation failed:", fallbackError.message);
+            finish("Location unavailable. Enable GPS/location permission or search a place.");
+          },
+          { enableHighAccuracy: false, timeout: 6000, maximumAge: 15 * 60 * 1000 }
+        );
+        return;
+      }
+      finish("Location unavailable. Enable GPS/location permission or search a place.");
+    };
+
+    hardTimeout = window.setTimeout(() => {
+      if (!settled) {
+        finish("Location request timed out. Check browser permission and GPS settings.");
+      }
+    }, 16000);
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        hasPosition = true;
-        renderCurrentLocation(position, 17, "High accuracy location locked.");
+        renderCurrentLocation(position, 17, "Live location locked.");
         finish();
       },
-      (error) => {
-        console.warn("High accuracy geolocation failed:", error.message);
-        preciseAttemptDone = true;
-        if (!finished) {
-          if (!hasPosition) {
-            setLocationStatus("Location unavailable. Search a place or allow location permission.");
-          } else if (hasPosition) {
-            setLocationStatus("Approximate location shown. Search can refine the pin.");
-          }
-          finish();
-        }
-      },
-      { enableHighAccuracy: true, timeout: 7500, maximumAge: 0 }
+      showGeoError,
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
     );
-
-    setTimeout(() => {
-      if (!finished && hasPosition && !preciseAttemptDone) {
-        setLocationStatus("Approximate location shown. Still checking GPS precision...");
-      }
-    }, 1800);
   };
 
   // Redraw Heatmap Overlay
@@ -394,6 +406,10 @@ export default function CivicMap({
     return () => {
       clearTimeout(t);
       window.removeEventListener("resize", handleResize);
+      if (currentLocationMarkerRef.current) {
+        map.removeLayer(currentLocationMarkerRef.current);
+        currentLocationMarkerRef.current = null;
+      }
       map.remove();
       mapRef.current = null;
     };

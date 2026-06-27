@@ -165,7 +165,9 @@ export default function DashboardPage({ currentUser, onNavigate, language }: Das
           />
           <div>
             <h1 className="text-xl sm:text-2xl font-extrabold text-theme-main tracking-tight">{currentUser.name}</h1>
-            <p className="text-xs text-theme-muted capitalize">Role: {currentUser.role} Inspector (Bengaluru Urban Area)</p>
+            <p className="text-xs text-theme-muted capitalize">
+              Role: {currentUser.role === "admin" ? "Administrator" : currentUser.role === "staff" ? "Municipal Inspector" : "Citizen Reporter"} (Bengaluru Urban Area)
+            </p>
             <div className="flex gap-2 mt-2">
               {currentUser.badges.slice(0, 3).map((badgeName) => (
                 <span key={badgeName} className="text-[9px] font-mono font-bold bg-[#FFB547]/10 text-[#FFB547] border border-[#FFB547]/15 px-2 py-0.5 rounded leading-none">
