@@ -1,0 +1,1862 @@
+{
+  "issues": [
+    {
+      "id": "rep-sim-1493",
+      "createdBy": "system_telemetry",
+      "createdByName": "City Telemetry Sensor",
+      "title": "[Live Telemetry] Local garbage accumulation alert",
+      "originalDescription": "Automated alert received from municipal monitoring sensor network.",
+      "aiSummary": "Telemetry sensor trigger. Automated queue routing active.",
+      "category": "Solid Waste Management",
+      "subcategory": "Garbage Dumping",
+      "severity": "medium",
+      "priorityScore": 62,
+      "location": {
+        "lat": 12.983715873397934,
+        "lng": 77.60960382409198,
+        "isApproximate": false
+      },
+      "address": "Bengaluru Urban Telemetry Grid",
+      "landmark": "Sensor Zone 63",
+      "evidence": [
+        {
+          "url": "/assets/demo/pothole_preset.png",
+          "type": "image"
+        }
+      ],
+      "status": "New",
+      "assignedDepartment": "Public Works Department",
+      "verificationCount": 2,
+      "inaccurateCount": 0,
+      "followerCount": 2,
+      "createdAt": "2026-06-27T16:35:01.493Z",
+      "updatedAt": "2026-06-27T16:35:01.493Z"
+    },
+    {
+      "id": "rep-sim-0758",
+      "createdBy": "system_telemetry",
+      "createdByName": "City Telemetry Sensor",
+      "title": "[Live Telemetry] Local garbage accumulation alert",
+      "originalDescription": "Automated alert received from municipal monitoring sensor network.",
+      "aiSummary": "Telemetry sensor trigger. Automated queue routing active.",
+      "category": "Solid Waste Management",
+      "subcategory": "Garbage Dumping",
+      "severity": "medium",
+      "priorityScore": 97,
+      "location": {
+        "lat": 12.964623778681085,
+        "lng": 77.57866311788506,
+        "isApproximate": false
+      },
+      "address": "Bengaluru Urban Telemetry Grid",
+      "landmark": "Sensor Zone 86",
+      "evidence": [
+        {
+          "url": "/assets/demo/pothole_preset.png",
+          "type": "image"
+        }
+      ],
+      "status": "New",
+      "assignedDepartment": "Public Works Department",
+      "verificationCount": 42,
+      "inaccurateCount": 0,
+      "followerCount": 66,
+      "createdAt": "2026-06-24T19:35:40.758Z",
+      "updatedAt": "2026-06-24T19:35:40.758Z"
+    },
+    {
+      "id": "rep-sim-8748",
+      "createdBy": "system_telemetry",
+      "createdByName": "City Telemetry Sensor",
+      "title": "[Live Telemetry] Minor water pipeline leak",
+      "originalDescription": "Automated alert received from municipal monitoring sensor network.",
+      "aiSummary": "Telemetry sensor trigger. Automated queue routing active.",
+      "category": "Water & Sanitation",
+      "subcategory": "Water Pipeline Leakage",
+      "severity": "medium",
+      "priorityScore": 99,
+      "location": {
+        "lat": 12.955708521057412,
+        "lng": 77.58459140038421,
+        "isApproximate": false
+      },
+      "address": "Bengaluru Urban Telemetry Grid",
+      "landmark": "Sensor Zone 76",
+      "evidence": [
+        {
+          "url": "/assets/demo/pothole_preset.png",
+          "type": "image"
+        }
+      ],
+      "status": "New",
+      "assignedDepartment": "Public Works Department",
+      "verificationCount": 42,
+      "inaccurateCount": 0,
+      "followerCount": 60,
+      "createdAt": "2026-06-24T19:35:28.748Z",
+      "updatedAt": "2026-06-24T19:35:28.748Z"
+    },
+    {
+      "id": "rep-001",
+      "title": "Deep Pothole Near Entrance of St. Xavier Primary School",
+      "description": "A large, deep pothole has formed right in the middle of the school approach road. It fills up with water when it rains, making it impossible for cyclists and pedestrians to estimate its depth. Multiple school kids on bicycles have tripped and injured themselves, presenting an immediate safety hazard during peak drop-off/pick-up hours.",
+      "category": "pothole",
+      "latitude": 22.5697,
+      "longitude": 88.3639,
+      "approximatePublicLocation": "Near St. Xavier Primary School, Kolkata",
+      "address": "St. Xavier Road, Central Kolkata, West Bengal, 700016",
+      "reporterId": "cit-101",
+      "reporterName": "Rajesh Kumar",
+      "status": "reported",
+      "priorityScore": 97,
+      "priorityLevel": "critical",
+      "severity": 9,
+      "publicRisk": 9,
+      "aiConfidence": 0.94,
+      "suggestedDepartment": "Municipal Works & Roads",
+      "verificationCount": 63,
+      "followersCount": 15,
+      "createdAt": "2026-06-23T07:00:13.481Z",
+      "updatedAt": "2026-06-23T07:00:13.483Z",
+      "beforeImageUrl": "https://images.unsplash.com/photo-1599740831146-80e84523a027?auto=format&fit=crop&w=800&q=80",
+      "verifications": [
+        {
+          "userId": "cit-102",
+          "userName": "Aisha Sen",
+          "createdAt": "2026-06-23T13:00:13.483Z",
+          "notes": "Almost crashed my scooter into this today. Super dangerous!"
+        },
+        {
+          "userId": "cit-103",
+          "userName": "Arjun Das",
+          "createdAt": "2026-06-23T18:00:13.483Z",
+          "notes": "It is extremely deep; verified this morning."
+        }
+      ],
+      "followers": [
+        "cit-101",
+        "cit-102",
+        "cit-103",
+        "cit-104"
+      ],
+      "aiReasoning": {
+        "priorityExplanation": "High priority due to extreme hazard score, located adjacent to a primary education facility, with 12 public verifications corroborating high-frequency pedestrian crashes.",
+        "duplicateStatus": "No nearby duplicates found in this block.",
+        "resolutionStatus": "Awaiting municipal response."
+      },
+      "followerCount": 80
+    },
+    {
+      "id": "rep-002",
+      "title": "Main Drinking Water Pipeline Rupture Flooding Subji Market Lane",
+      "description": "A major water leakage on the sidewalk has ruptured. Hundreds of liters of clean drinking water are leaking every hour. The water is flooding the vegetable market, washing away vendor stalls, and causing extreme slippery muddy hazards on the street, leading to economic damage and critical water wastage.",
+      "category": "water_leakage",
+      "latitude": 22.5726,
+      "longitude": 88.3585,
+      "approximatePublicLocation": "Subji Bazaar Market Lane, Kolkata",
+      "address": "Market Street, Bowbazar, Kolkata, West Bengal, 700012",
+      "reporterId": "cit-104",
+      "reporterName": "Ananya Roy",
+      "status": "under_verification",
+      "priorityScore": 100,
+      "priorityLevel": "high",
+      "severity": 8,
+      "publicRisk": 7,
+      "aiConfidence": 0.92,
+      "suggestedDepartment": "Water Supply & Sanitation",
+      "verificationCount": 48,
+      "followersCount": 12,
+      "createdAt": "2026-06-23T19:00:13.483Z",
+      "updatedAt": "2026-06-23T19:00:13.483Z",
+      "beforeImageUrl": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
+      "verifications": [
+        {
+          "userId": "cit-105",
+          "userName": "Amit Banerjee",
+          "createdAt": "2026-06-24T01:00:13.483Z",
+          "notes": "Water pipeline has burst completely. Whole street is waterlogged."
+        }
+      ],
+      "followers": [
+        "cit-104",
+        "cit-105"
+      ],
+      "aiReasoning": {
+        "priorityExplanation": "High severity because it is continuously leaking high volumes of drinking water in a dense commercial zone, causing direct loss of public utility and road waterlogging.",
+        "duplicateStatus": "Potential match detected at 200m road intersection; monitored as master.",
+        "resolutionStatus": "Referred to City Water Supply unit for active valve shutdown."
+      },
+      "followerCount": 64
+    },
+    {
+      "id": "rep-003",
+      "title": "Uncontrolled Garbage Accumulation Outside Sector 5 Central Park Entrance",
+      "description": "A massive pile of commercial domestic garbage has accumulated on the walkway outside the central park entrance gate. Stray dogs, cows, and rodents are tearing through and scattering plastic bags. The strong rot smell makes recreational park usage unpleasant, creating immediate bio-sanitation concerns and blocking strollers.",
+      "category": "garbage",
+      "latitude": 22.5732,
+      "longitude": 88.4312,
+      "approximatePublicLocation": "Sector V Central Park Main Gate, Salt Lake",
+      "address": "Sector V, Salt Lake City, Bidhannagar, Kolkata, West Bengal, 700091",
+      "reporterId": "cit-102",
+      "reporterName": "Aisha Sen",
+      "status": "verified",
+      "priorityScore": 100,
+      "priorityLevel": "medium",
+      "severity": 7,
+      "publicRisk": 6,
+      "aiConfidence": 0.89,
+      "suggestedDepartment": "Solid Waste Management",
+      "verificationCount": 63,
+      "followersCount": 9,
+      "createdAt": "2026-06-22T19:00:13.483Z",
+      "updatedAt": "2026-06-24T07:00:13.483Z",
+      "beforeImageUrl": "https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?auto=format&fit=crop&w=800&q=80",
+      "verifications": [
+        {
+          "userId": "cit-101",
+          "userName": "Rajesh Kumar",
+          "createdAt": "2026-06-23T03:00:13.483Z",
+          "notes": "Highly offensive smell. This has been breeding flies for 3 days."
+        }
+      ],
+      "followers": [
+        "cit-102",
+        "cit-101"
+      ],
+      "aiReasoning": {
+        "priorityExplanation": "Medium/High priority due to heavy public traffic at park, blocking the primary walking sidewalk, and hosting vermin breeding vectors.",
+        "duplicateStatus": "No duplicate markers locally.",
+        "resolutionStatus": "Approved by public verification. Queue updated for container collection."
+      },
+      "followerCount": 83
+    },
+    {
+      "id": "rep-004",
+      "title": "Completely Clogged Stromwater Drain Causing High Street Waterlogging",
+      "description": "The storm drainage grate at the intersection is fully clogged with garbage, plastic waste, and dry leaves. Even a light flurry of rain translates to knee-deep clogging, rendering the crosswalk impassable and pushing water directly into several ground-floor retail shops.",
+      "category": "drainage",
+      "latitude": 22.5802,
+      "longitude": 88.3611,
+      "approximatePublicLocation": "MG Road Crossing, Kolkata",
+      "address": "Mahatma Gandhi Road, College Street crossing, Kolkata, West Bengal, 700007",
+      "reporterId": "cit-106",
+      "reporterName": "Joydeep Mukerjee",
+      "status": "assigned",
+      "assignedDepartment": "Drainage & Sewerage Systems",
+      "assignedStaffName": "Staff Debajit Saha",
+      "priorityScore": 100,
+      "priorityLevel": "high",
+      "severity": 8,
+      "publicRisk": 8,
+      "aiConfidence": 0.91,
+      "suggestedDepartment": "Drainage & Sewerage Systems",
+      "verificationCount": 44,
+      "followersCount": 22,
+      "createdAt": "2026-06-21T19:00:13.483Z",
+      "updatedAt": "2026-06-22T17:00:13.483Z",
+      "beforeImageUrl": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80",
+      "verifications": [],
+      "followers": [
+        "cit-106"
+      ],
+      "aiReasoning": {
+        "priorityExplanation": "High priority due to intersection flooding and retail damage risk. Severe street drainage block requires mechanical suction truck intervention.",
+        "duplicateStatus": "None.",
+        "resolutionStatus": "Dispatched specialized drainage truck under Staff Debajit."
+      },
+      "followerCount": 41
+    },
+    {
+      "id": "rep-005",
+      "title": "Dangerous Dark Pedestrian Alleyway Due to Broken Streetlights",
+      "description": "Four successive lampposts along this dark pedestrian alleyway have completely burnt out, leaving the passage in absolute pitch black darkness after 6 PM. Multiple locals report feeling extremely unsafe, and there was an attempted phone snatching reported here yesterday.",
+      "category": "streetlight",
+      "latitude": 22.5855,
+      "longitude": 88.4109,
+      "approximatePublicLocation": "AE Block Alleyway, Salt Lake",
+      "address": "AE Block Road, near community club, Bidhannagar, West Bengal, 700064",
+      "reporterId": "cit-107",
+      "reporterName": "Meera Sen",
+      "status": "in_progress",
+      "assignedDepartment": "Electrical & Street Lighting",
+      "assignedStaffName": "Staff Sandeep Ray",
+      "priorityScore": 100,
+      "priorityLevel": "medium",
+      "severity": 6,
+      "publicRisk": 7,
+      "aiConfidence": 0.88,
+      "suggestedDepartment": "Electrical & Street Lighting",
+      "verificationCount": 45,
+      "followersCount": 8,
+      "createdAt": "2026-06-22T07:00:13.483Z",
+      "updatedAt": "2026-06-24T13:00:13.483Z",
+      "beforeImageUrl": "/assets/demo/dark_street_preset.png",
+      "verifications": [],
+      "followers": [
+        "cit-107"
+      ],
+      "aiReasoning": {
+        "priorityExplanation": "Medium level safety issue. The darkness directly creates vulnerability to criminal activities. Assigned to bulb and circuit crew on patrol.",
+        "duplicateStatus": "None.",
+        "resolutionStatus": "Work order active. Crew replacing faulty transformers today."
+      },
+      "followerCount": 57
+    },
+    {
+      "id": "rep-006",
+      "title": "Illegal Industrial Waste Dumping & Garbage Pile On Ring Road Bypass",
+      "description": "Large piles of concrete debris, garbage bags, and hazardous chemical canisters have been illegally dumped on the green reservation on the side of the Ring Road Bypass under the cover of night. This is polluting local soil and looks extremely bad.",
+      "category": "illegal_dumping",
+      "latitude": 22.5451,
+      "longitude": 88.3842,
+      "approximatePublicLocation": "Ring Road Eastern Met Bypass",
+      "address": "EM Bypass Road, near Science City, Kolkata, West Bengal, 700046",
+      "reporterId": "cit-105",
+      "reporterName": "Amit Banerjee",
+      "status": "resolved",
+      "assignedDepartment": "Environmental Sanitation & Solid Waste",
+      "assignedStaffName": "Staff Sandeep Ray",
+      "priorityScore": 100,
+      "priorityLevel": "critical",
+      "severity": 9,
+      "publicRisk": 9,
+      "aiConfidence": 0.95,
+      "suggestedDepartment": "Environmental Control",
+      "verificationCount": 59,
+      "followersCount": 35,
+      "createdAt": "2026-06-19T19:00:13.483Z",
+      "updatedAt": "2026-06-24T09:00:13.483Z",
+      "resolvedAt": "2026-06-24T09:00:13.483Z",
+      "beforeImageUrl": "https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=800&q=80",
+      "resolutionImageUrl": "https://images.unsplash.com/photo-1584467541268-b040f83be3fd?auto=format&fit=crop&w=800&q=80",
+      "resolutionConfidence": 94,
+      "verifications": [],
+      "followers": [
+        "cit-105"
+      ],
+      "aiReasoning": {
+        "priorityExplanation": "Completed resolution checked by AI. Highly rated because chemical waste on public bypass was fully removed by municipal cleanup bulldozers.",
+        "duplicateStatus": "No further dumpings on this node.",
+        "resolutionStatus": "Resolved. AI Before-and-after checks confirmed green clean vegetation reinstated."
+      },
+      "followerCount": 55
+    }
+  ],
+  "users": [
+    {
+      "id": "cit-101",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "role": "citizen",
+      "score": 180,
+      "badges": [
+        "civic-helper",
+        "verified-reporter"
+      ],
+      "reportsCount": 4,
+      "verificationsCount": 8,
+      "resolutionsCount": 2
+    },
+    {
+      "id": "cit-102",
+      "name": "Aisha Sen",
+      "email": "aisha@gmail.com",
+      "role": "citizen",
+      "score": 145,
+      "badges": [
+        "civic-helper"
+      ],
+      "reportsCount": 3,
+      "verificationsCount": 5,
+      "resolutionsCount": 1
+    },
+    {
+      "id": "staff-101",
+      "name": "Officer Sandeep Ray",
+      "email": "sandeep@municipal.gov",
+      "role": "authority",
+      "score": 500,
+      "badges": [
+        "resolution-champion",
+        "local-hero"
+      ],
+      "reportsCount": 0,
+      "verificationsCount": 15,
+      "resolutionsCount": 12
+    },
+    {
+      "id": "admin-101",
+      "name": "SysAdmin Madara",
+      "email": "madarauchihalegend0@gmail.com",
+      "role": "admin",
+      "score": 1000,
+      "badges": [
+        "community-guardian"
+      ],
+      "reportsCount": 1,
+      "verificationsCount": 20,
+      "resolutionsCount": 20
+    }
+  ],
+  "comments": [
+    {
+      "id": "com-001",
+      "issueId": "rep-001",
+      "userId": "cit-102",
+      "userName": "Aisha Sen",
+      "userRole": "citizen",
+      "content": "The water fills up in it so much that yesterday a school pull-car nearly got stuck. It is a major road hazard.",
+      "createdAt": "2026-06-23T11:00:13.483Z"
+    },
+    {
+      "id": "com-002",
+      "issueId": "rep-001",
+      "userId": "cit-103",
+      "userName": "Arjun Das",
+      "userRole": "citizen",
+      "content": "We need authorities to clear this area before school starting time tomorrow.",
+      "createdAt": "2026-06-23T19:00:13.483Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "not-001",
+      "userId": "cit-101",
+      "title": "Issue Verified",
+      "message": "Your reported pothole near St. Xavier School has been verified by 12 other community members.",
+      "type": "verification",
+      "isRead": false,
+      "issueId": "rep-001",
+      "createdAt": "2026-06-23T18:00:13.483Z"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "aud-001",
+      "issueId": "rep-001",
+      "action": "ISSUE_REPORTED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Issue successfully captured and generated by Gemini AI with critical classification.",
+      "createdAt": "2026-06-23T07:00:13.483Z"
+    },
+    {
+      "id": "aud-002",
+      "issueId": "rep-006",
+      "action": "RESOLUTION_VERIFIED",
+      "performedBy": "staff-101",
+      "performerName": "Officer Sandeep Ray",
+      "performerRole": "authority",
+      "details": "Field cleanup report submitted. Gemini compared the before-and-after photo and approved resolution with 94% confidence.",
+      "createdAt": "2026-06-24T09:00:13.483Z"
+    },
+    {
+      "id": "aud-003",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-001 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T19:00:14.210Z"
+    },
+    {
+      "id": "aud-004",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-002 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T19:00:19.519Z"
+    },
+    {
+      "id": "aud-005",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-003 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T19:02:38.413Z"
+    },
+    {
+      "id": "aud-006",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-004 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T19:02:38.565Z"
+    },
+    {
+      "id": "aud-007",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-005 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T19:02:38.599Z"
+    },
+    {
+      "id": "aud-008",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-006 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T19:02:38.687Z"
+    },
+    {
+      "id": "aud-009",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-007 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T19:02:38.717Z"
+    },
+    {
+      "id": "aud-010",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-008 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T19:02:38.735Z"
+    },
+    {
+      "id": "aud-011",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-009 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T19:02:38.754Z"
+    },
+    {
+      "id": "aud-012",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-010 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T19:04:18.003Z"
+    },
+    {
+      "id": "aud-013",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-011 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T19:04:18.193Z"
+    },
+    {
+      "id": "aud-014",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-012 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T19:04:18.221Z"
+    },
+    {
+      "id": "aud-015",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-013 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T19:04:18.319Z"
+    },
+    {
+      "id": "aud-016",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-014 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T19:04:18.345Z"
+    },
+    {
+      "id": "aud-017",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-015 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T19:05:36.747Z"
+    },
+    {
+      "id": "aud-018",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-016 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T19:08:08.367Z"
+    },
+    {
+      "id": "aud-019",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-017 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T19:36:02.769Z"
+    },
+    {
+      "id": "aud-020",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-018 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T20:02:04.646Z"
+    },
+    {
+      "id": "aud-021",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-019 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T20:06:49.824Z"
+    },
+    {
+      "id": "aud-022",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-020 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T20:10:23.722Z"
+    },
+    {
+      "id": "aud-023",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-021 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T20:13:37.189Z"
+    },
+    {
+      "id": "aud-024",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-022 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T20:15:26.430Z"
+    },
+    {
+      "id": "aud-025",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-023 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T20:19:33.637Z"
+    },
+    {
+      "id": "aud-026",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-024 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T20:21:32.268Z"
+    },
+    {
+      "id": "aud-027",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-025 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T20:23:46.623Z"
+    },
+    {
+      "id": "aud-028",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-026 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T20:24:30.998Z"
+    },
+    {
+      "id": "aud-029",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-027 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T20:28:43.344Z"
+    },
+    {
+      "id": "aud-030",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-028 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T20:28:59.678Z"
+    },
+    {
+      "id": "aud-031",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-029 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T20:29:19.672Z"
+    },
+    {
+      "id": "aud-032",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-030 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T20:29:47.417Z"
+    },
+    {
+      "id": "aud-033",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-031 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T20:32:49.995Z"
+    },
+    {
+      "id": "aud-034",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-032 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T20:36:30.861Z"
+    },
+    {
+      "id": "aud-035",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-033 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T20:38:29.489Z"
+    },
+    {
+      "id": "aud-036",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-034 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-24T20:40:12.823Z"
+    },
+    {
+      "id": "aud-037",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-035 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-26T12:58:59.322Z"
+    },
+    {
+      "id": "aud-038",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-036 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-27T16:15:26.164Z"
+    },
+    {
+      "id": "aud-039",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-037 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-27T16:19:21.891Z"
+    },
+    {
+      "id": "aud-040",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-038 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-27T16:19:46.453Z"
+    },
+    {
+      "id": "aud-041",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-039 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-27T16:27:27.708Z"
+    },
+    {
+      "id": "aud-042",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-040 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-27T16:27:45.638Z"
+    },
+    {
+      "id": "aud-043",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-041 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-27T16:33:14.559Z"
+    },
+    {
+      "id": "aud-044",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-042 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-27T16:34:00.444Z"
+    },
+    {
+      "id": "aud-045",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-043 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-27T16:35:24.141Z"
+    },
+    {
+      "id": "aud-046",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-044 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-27T16:35:52.005Z"
+    },
+    {
+      "id": "aud-047",
+      "action": "SUPPORT_TICKET_CREATED",
+      "performedBy": "cit-101",
+      "performerName": "Rajesh Kumar",
+      "performerRole": "citizen",
+      "details": "Support ticket tkt-045 created for rajesh@gmail.com.",
+      "createdAt": "2026-06-27T16:42:16.435Z"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "t-001",
+      "name": "Rajesh Kumar",
+      "role": "Citizen Auditor",
+      "rating": 5,
+      "content": "This platform is incredibly transparent. I reported a pothole and got it resolved in under 24 hours!",
+      "status": "approved",
+      "createdAt": "2026-06-14T19:00:13.484Z"
+    },
+    {
+      "id": "t-002",
+      "name": "Officer Sandeep",
+      "role": "Municipal Crew",
+      "rating": 5,
+      "content": "As a technician, the forensic before/after photo check cuts down inspect timing and provides clear audit verification.",
+      "status": "approved",
+      "createdAt": "2026-06-19T19:00:13.484Z"
+    }
+  ],
+  "contactSubmissions": [
+    {
+      "id": "sub-1782578536435",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-27T16:42:16.435Z"
+    },
+    {
+      "id": "sub-1782578152005",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-27T16:35:52.005Z"
+    },
+    {
+      "id": "sub-1782578124141",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-27T16:35:24.141Z"
+    },
+    {
+      "id": "sub-1782578040444",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-27T16:34:00.444Z"
+    },
+    {
+      "id": "sub-1782577994559",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-27T16:33:14.559Z"
+    },
+    {
+      "id": "sub-1782577665638",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-27T16:27:45.638Z"
+    },
+    {
+      "id": "sub-1782577647708",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-27T16:27:27.708Z"
+    },
+    {
+      "id": "sub-1782577186453",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-27T16:19:46.453Z"
+    },
+    {
+      "id": "sub-1782577161891",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-27T16:19:21.891Z"
+    },
+    {
+      "id": "sub-1782576926164",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-27T16:15:26.164Z"
+    },
+    {
+      "id": "sub-1782478739322",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-26T12:58:59.322Z"
+    },
+    {
+      "id": "sub-1782333612823",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T20:40:12.823Z"
+    },
+    {
+      "id": "sub-1782333509489",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T20:38:29.489Z"
+    },
+    {
+      "id": "sub-1782333390861",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T20:36:30.861Z"
+    },
+    {
+      "id": "sub-1782333169995",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T20:32:49.995Z"
+    },
+    {
+      "id": "sub-1782332987417",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T20:29:47.417Z"
+    },
+    {
+      "id": "sub-1782332959672",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T20:29:19.672Z"
+    },
+    {
+      "id": "sub-1782332939678",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T20:28:59.678Z"
+    },
+    {
+      "id": "sub-1782332923344",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T20:28:43.344Z"
+    },
+    {
+      "id": "sub-1782332670998",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T20:24:30.998Z"
+    },
+    {
+      "id": "sub-1782332626623",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T20:23:46.623Z"
+    },
+    {
+      "id": "sub-1782332492268",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T20:21:32.268Z"
+    },
+    {
+      "id": "sub-1782332373637",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T20:19:33.637Z"
+    },
+    {
+      "id": "sub-1782332126430",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T20:15:26.430Z"
+    },
+    {
+      "id": "sub-1782332017189",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T20:13:37.189Z"
+    },
+    {
+      "id": "sub-1782331823722",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T20:10:23.722Z"
+    },
+    {
+      "id": "sub-1782331609824",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T20:06:49.824Z"
+    },
+    {
+      "id": "sub-1782331324646",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T20:02:04.646Z"
+    },
+    {
+      "id": "sub-1782329762769",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T19:36:02.769Z"
+    },
+    {
+      "id": "sub-1782328088366",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T19:08:08.366Z"
+    },
+    {
+      "id": "sub-1782327936747",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T19:05:36.747Z"
+    },
+    {
+      "id": "sub-1782327858345",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 3",
+      "message": "Testing strict rate limiting under security verification.",
+      "createdAt": "2026-06-24T19:04:18.345Z"
+    },
+    {
+      "id": "sub-1782327858319",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 2",
+      "message": "Testing strict rate limiting under security verification.",
+      "createdAt": "2026-06-24T19:04:18.319Z"
+    },
+    {
+      "id": "sub-1782327858221",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 1",
+      "message": "Testing strict rate limiting under security verification.",
+      "createdAt": "2026-06-24T19:04:18.221Z"
+    },
+    {
+      "id": "sub-1782327858193",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 0",
+      "message": "Testing strict rate limiting under security verification.",
+      "createdAt": "2026-06-24T19:04:18.193Z"
+    },
+    {
+      "id": "sub-1782327858002",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T19:04:18.002Z"
+    },
+    {
+      "id": "sub-1782327758754",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 6",
+      "message": "This should be rate limited.",
+      "createdAt": "2026-06-24T19:02:38.754Z"
+    },
+    {
+      "id": "sub-1782327758735",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 4",
+      "message": "Testing strict rate limiting under security verification.",
+      "createdAt": "2026-06-24T19:02:38.735Z"
+    },
+    {
+      "id": "sub-1782327758717",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 3",
+      "message": "Testing strict rate limiting under security verification.",
+      "createdAt": "2026-06-24T19:02:38.717Z"
+    },
+    {
+      "id": "sub-1782327758687",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 2",
+      "message": "Testing strict rate limiting under security verification.",
+      "createdAt": "2026-06-24T19:02:38.687Z"
+    },
+    {
+      "id": "sub-1782327758599",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 1",
+      "message": "Testing strict rate limiting under security verification.",
+      "createdAt": "2026-06-24T19:02:38.599Z"
+    },
+    {
+      "id": "sub-1782327758565",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 0",
+      "message": "Testing strict rate limiting under security verification.",
+      "createdAt": "2026-06-24T19:02:38.565Z"
+    },
+    {
+      "id": "sub-1782327758413",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T19:02:38.413Z"
+    },
+    {
+      "id": "sub-1782327619519",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 0",
+      "message": "Testing strict rate limiting under security verification.",
+      "createdAt": "2026-06-24T19:00:19.519Z"
+    },
+    {
+      "id": "sub-1782327614210",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "createdAt": "2026-06-24T19:00:14.210Z"
+    }
+  ],
+  "supportTickets": [
+    {
+      "id": "tkt-045",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-27T16:42:16.435Z"
+    },
+    {
+      "id": "tkt-044",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-27T16:35:52.005Z"
+    },
+    {
+      "id": "tkt-043",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-27T16:35:24.141Z"
+    },
+    {
+      "id": "tkt-042",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-27T16:34:00.444Z"
+    },
+    {
+      "id": "tkt-041",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-27T16:33:14.559Z"
+    },
+    {
+      "id": "tkt-040",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-27T16:27:45.638Z"
+    },
+    {
+      "id": "tkt-039",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-27T16:27:27.708Z"
+    },
+    {
+      "id": "tkt-038",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-27T16:19:46.453Z"
+    },
+    {
+      "id": "tkt-037",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-27T16:19:21.891Z"
+    },
+    {
+      "id": "tkt-036",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-27T16:15:26.164Z"
+    },
+    {
+      "id": "tkt-035",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-26T12:58:59.322Z"
+    },
+    {
+      "id": "tkt-034",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T20:40:12.823Z"
+    },
+    {
+      "id": "tkt-033",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T20:38:29.489Z"
+    },
+    {
+      "id": "tkt-032",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T20:36:30.861Z"
+    },
+    {
+      "id": "tkt-031",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T20:32:49.995Z"
+    },
+    {
+      "id": "tkt-030",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T20:29:47.417Z"
+    },
+    {
+      "id": "tkt-029",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T20:29:19.672Z"
+    },
+    {
+      "id": "tkt-028",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T20:28:59.678Z"
+    },
+    {
+      "id": "tkt-027",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T20:28:43.344Z"
+    },
+    {
+      "id": "tkt-026",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T20:24:30.998Z"
+    },
+    {
+      "id": "tkt-025",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T20:23:46.623Z"
+    },
+    {
+      "id": "tkt-024",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T20:21:32.268Z"
+    },
+    {
+      "id": "tkt-023",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T20:19:33.637Z"
+    },
+    {
+      "id": "tkt-022",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T20:15:26.430Z"
+    },
+    {
+      "id": "tkt-021",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T20:13:37.189Z"
+    },
+    {
+      "id": "tkt-020",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T20:10:23.722Z"
+    },
+    {
+      "id": "tkt-019",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T20:06:49.824Z"
+    },
+    {
+      "id": "tkt-018",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T20:02:04.646Z"
+    },
+    {
+      "id": "tkt-017",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T19:36:02.769Z"
+    },
+    {
+      "id": "tkt-016",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T19:08:08.367Z"
+    },
+    {
+      "id": "tkt-015",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T19:05:36.747Z"
+    },
+    {
+      "id": "tkt-014",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 3",
+      "message": "Testing strict rate limiting under security verification.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T19:04:18.345Z"
+    },
+    {
+      "id": "tkt-013",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 2",
+      "message": "Testing strict rate limiting under security verification.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T19:04:18.319Z"
+    },
+    {
+      "id": "tkt-012",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 1",
+      "message": "Testing strict rate limiting under security verification.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T19:04:18.221Z"
+    },
+    {
+      "id": "tkt-011",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 0",
+      "message": "Testing strict rate limiting under security verification.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T19:04:18.193Z"
+    },
+    {
+      "id": "tkt-010",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T19:04:18.003Z"
+    },
+    {
+      "id": "tkt-009",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 6",
+      "message": "This should be rate limited.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T19:02:38.754Z"
+    },
+    {
+      "id": "tkt-008",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 4",
+      "message": "Testing strict rate limiting under security verification.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T19:02:38.735Z"
+    },
+    {
+      "id": "tkt-007",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 3",
+      "message": "Testing strict rate limiting under security verification.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T19:02:38.717Z"
+    },
+    {
+      "id": "tkt-006",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 2",
+      "message": "Testing strict rate limiting under security verification.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T19:02:38.687Z"
+    },
+    {
+      "id": "tkt-005",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 1",
+      "message": "Testing strict rate limiting under security verification.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T19:02:38.599Z"
+    },
+    {
+      "id": "tkt-004",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 0",
+      "message": "Testing strict rate limiting under security verification.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T19:02:38.565Z"
+    },
+    {
+      "id": "tkt-003",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T19:02:38.413Z"
+    },
+    {
+      "id": "tkt-002",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Ticket 0",
+      "message": "Testing strict rate limiting under security verification.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T19:00:19.519Z"
+    },
+    {
+      "id": "tkt-001",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@gmail.com",
+      "subject": "Water leak on school road",
+      "message": "There is still water logging near the main gate.",
+      "status": "open",
+      "userId": "cit-101",
+      "claimedBy": "",
+      "claimedByName": "",
+      "messages": [],
+      "createdAt": "2026-06-24T19:00:14.210Z"
+    }
+  ],
+  "newsletterSubscribers": [],
+  "announcements": [
+    {
+      "id": "ann_1",
+      "title": "BESCOM Planned Power & Grid Outage Alert",
+      "content": "Please note that planned grid modernization and overhead cable-to-underground transition works will be carried out in Bellandur, Sarjapur, and Outer Ring Road blocks. Residents may experience temporary electricity dips.",
+      "createdAt": "2026-06-22T08:00:00Z",
+      "category": "warning",
+      "department": "Electricity Board (BESCOM)",
+      "authorName": "Admin Rajesh"
+    },
+    {
+      "id": "ann_2",
+      "title": "Monsoon Preparedness Drainage Cleaning Drive",
+      "content": "The BWSSB sanitary division has initiated high-pressure desilting and clearing of primary storm water drains cross-connecting sector lakes. Citizens can report blocked grates directly on CivicLens to direct crews.",
+      "createdAt": "2026-06-21T10:30:00Z",
+      "category": "info",
+      "department": "Water & Sewerage (BWSSB)",
+      "authorName": "Inspector Kamal"
+    },
+    {
+      "id": "ann_3",
+      "title": "Sarjapur Road Resurfacing Task Completed",
+      "content": "Heavy bitumen milling and road leveling work near the Silk Board highway split has been completed 12 hours ahead of schedule by the PWD engineering cell. Transit delays are projected to return to standard parameters.",
+      "createdAt": "2026-06-20T17:00:00Z",
+      "category": "success",
+      "department": "Public Works Department",
+      "authorName": "Admin Rajesh"
+    }
+  ],
+  "admin2FA": {
+    "rajesh@gmail.com": "703239"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "CivicPulse AI",
+  "description": "Hyperlocal community issue reporting, verification, prioritization, and resolution platform powered by Gemini AI.",
+  "requestFramePermissions": ["camera", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

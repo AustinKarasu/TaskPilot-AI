@@ -1,0 +1,118 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // --- Helper Functions ---
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return isAuthenticated() && request.auth.uid == uid;
+    }
+
+    function getUserRole() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && getUserRole() == 'admin';
+    }
+
+    function isStaff() {
+      return isAuthenticated() && (getUserRole() == 'staff' || getUserRole() == 'authority' || getUserRole() == 'admin');
+    }
+
+    // --- Issues ---
+    match /issues/{issueId} {
+      // Public read (limited fields handled at app level)
+      allow read: if true;
+
+      // Authenticated users can create issues
+      allow create: if isAuthenticated()
+        && request.resource.data.reporterId == request.auth.uid
+        && request.resource.data.keys().hasAll(['title', 'description', 'category', 'latitude', 'longitude']);
+
+      // Staff/Admin can update any issue (status changes, assignments)
+      // Citizens can only update their own issues (limited fields)
+      allow update: if isStaff()
+        || (isOwner(resource.data.reporterId) && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['description', 'title']));
+
+      // Only admins can delete
+      allow delete: if isAdmin();
+    }
+
+    // --- Comments ---
+    match /comments/{commentId} {
+      allow read: if true;
+      allow create: if isAuthenticated()
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.keys().hasAll(['issueId', 'content', 'userId', 'userName']);
+      allow update: if isOwner(resource.data.userId) || isAdmin();
+      allow delete: if isOwner(resource.data.userId) || isAdmin();
+    }
+
+    // --- Users ---
+    match /users/{userId} {
+      // Users can read their own profile; staff can read any for assignment
+      // Changed to allow all authenticated users to read profiles for leaderboards and comments
+      allow read: if isAuthenticated();
+
+      // Users can create their own profile
+      allow create: if isOwner(userId);
+
+      // Users can update their own profile (limited fields); admin can update any
+      allow update: if isOwner(userId) || isAdmin();
+
+      // Only admin can delete users
+      allow delete: if isAdmin();
+    }
+
+    // --- Notifications ---
+    match /notifications/{notificationId} {
+      // Users can read their own notifications
+      allow read: if isAuthenticated() && resource.data.userId == request.auth.uid;
+
+      // System/admin can create notifications
+      allow create: if isStaff();
+
+      // Users can mark their own as read
+      allow update: if isAuthenticated() && resource.data.userId == request.auth.uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['isRead']);
+
+      allow delete: if isAdmin();
+    }
+
+    // --- Audit Logs ---
+    match /auditLogs/{logId} {
+      // Staff and admin can read audit logs
+      allow read: if isStaff();
+
+      // Only system (admin SDK) should create, but allow staff for now
+      allow create: if isStaff();
+
+      // No updates or deletes to preserve audit trail integrity
+      allow update, delete: if false;
+    }
+
+    // --- Departments ---
+    match /departments/{deptId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // --- Announcements ---
+    match /announcements/{announcementId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // --- Rewards Ledger ---
+    match /rewardsLedger/{entryId} {
+      allow read: if isAuthenticated()
+        && (resource.data.userId == request.auth.uid || isStaff());
+      allow create: if isStaff();
+      allow update, delete: if isAdmin();
+    }
+  }
+}

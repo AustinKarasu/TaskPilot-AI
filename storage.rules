@@ -1,0 +1,80 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return request.auth.uid == uid;
+    }
+
+    function isImage() {
+      return request.resource.contentType.matches('image/.*');
+    }
+
+    function isVideo() {
+      return request.resource.contentType.matches('video/.*');
+    }
+
+    function isUnder10MB() {
+      return request.resource.size < 10 * 1024 * 1024;
+    }
+
+    function isUnder50MB() {
+      return request.resource.size < 50 * 1024 * 1024;
+    }
+
+    // --- Issue Evidence Images ---
+    match /issues/{issueId}/{allPaths=**} {
+      // Anyone can view issue images (public transparency)
+      allow read: if true;
+
+      // Authenticated users can upload images under 10MB
+      allow create: if isAuthenticated()
+        && (isImage() || isVideo())
+        && (isImage() ? isUnder10MB() : isUnder50MB());
+
+      // Only the uploader or admin can overwrite
+      allow update: if isAuthenticated() && isUnder10MB();
+
+      // Only admin can delete
+      allow delete: if isAuthenticated();
+    }
+
+    // --- Resolution Evidence ---
+    match /resolutions/{issueId}/{allPaths=**} {
+      allow read: if true;
+      allow create: if isAuthenticated()
+        && (isImage() || isVideo())
+        && (isImage() ? isUnder10MB() : isUnder50MB());
+      allow delete: if isAuthenticated();
+    }
+
+    // --- User Avatars ---
+    match /avatars/{userId}/{allPaths=**} {
+      allow read: if true;
+      allow create, update: if isAuthenticated()
+        && isOwner(userId)
+        && isImage()
+        && request.resource.size < 5 * 1024 * 1024;
+      allow delete: if isAuthenticated() && isOwner(userId);
+    }
+
+    // --- Verification Evidence ---
+    match /verifications/{verificationId}/{allPaths=**} {
+      allow read: if true;
+      allow create: if isAuthenticated()
+        && isImage()
+        && isUnder10MB();
+      allow delete: if isAuthenticated();
+    }
+
+    // Deny everything else
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

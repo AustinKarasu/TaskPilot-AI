@@ -1,0 +1,24 @@
+{
+  "short_name": "CivicPulse",
+  "name": "CivicPulse AI",
+  "description": "Hyperlocal infrastructure auditing and problem resolution platform with AI insights.",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0F766E",
+  "theme_color": "#0F766E",
+  "display": "standalone",
+  "orientation": "portrait"
+}
